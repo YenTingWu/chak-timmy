@@ -5,6 +5,7 @@ import { useDateFieldState } from "@react-stately/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerSegment } from "./date-picker-segment";
+import { DatePickerTriggerButton } from "./date-picker-trigger-button";
 import type { DateValue, AriaDatePickerProps } from "@react-aria/datepicker";
 
 interface DatePickerFieldProps extends AriaDatePickerProps<DateValue> {}
@@ -34,6 +35,7 @@ export const DatePickerField = (props: DatePickerFieldProps) => {
       {state.segments.map((segment, i) => (
         <DatePickerSegment key={i} segment={segment} state={state} />
       ))}
+      <DatePickerTriggerButton />
     </chakra.div>
   );
 };
