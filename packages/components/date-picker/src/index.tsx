@@ -1,7 +1,7 @@
-import { useRef } from "react";
 import { chakra } from "@chakra-ui/system";
-import { useDatePicker } from "@react-aria/datepicker";
-import { useDatePickerState } from "@react-stately/datepicker";
+import { DatePickerProvider } from "./date-picker.provider";
+import { useDatePickerContext } from "./date-picker.context";
+import { DatePickerGroup } from "./date-picker-group";
 import { DatePickerField } from "./date-picker-field";
 import { DatePickerPopover } from "./date-picker-popover";
 import { DatePickerDialog } from "./date-picker-dialog";
@@ -11,27 +11,30 @@ import type { DatePickerStateOptions } from "@react-stately/datepicker";
 
 interface DatePickerProps extends DatePickerStateOptions<DateValue> {}
 
-export const DatePicker = (props: DatePickerProps) => {
-  const state = useDatePickerState(props);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { labelProps, fieldProps, buttonProps, dialogProps, groupProps } =
-    useDatePicker(props, state, ref);
+export const DatePickerSke = () => {
+  const { state } = useDatePickerContext();
 
   return (
-    <chakra.div>
-      <chakra.label {...labelProps}>{props.label ?? "HIHILHI"}</chakra.label>
-      <div {...groupProps} ref={ref}>
-        <DatePickerField {...fieldProps} />
-        <DatePickerTriggerButton {...buttonProps} />
-      </div>
+    <chakra.div fontWeight={400} fontSize="16px" lineHeight="20px">
+      <DatePickerGroup>
+        <DatePickerField />
+        <DatePickerTriggerButton />
+      </DatePickerGroup>
       {state.isOpen && (
-        <DatePickerPopover triggerRef={ref} state={state}>
-          <DatePickerDialog {...dialogProps}>
+        <DatePickerPopover>
+          <DatePickerDialog>
             <div> asdkjfalsdfjlkajsdflkjasldkfjalksdkjflkasdf</div>
           </DatePickerDialog>
         </DatePickerPopover>
       )}
     </chakra.div>
+  );
+};
+
+export const DatePickerExample = (props: DatePickerProps) => {
+  return (
+    <DatePickerProvider {...props}>
+      <DatePickerSke />
+    </DatePickerProvider>
   );
 };

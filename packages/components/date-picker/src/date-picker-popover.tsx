@@ -1,24 +1,23 @@
 import { useRef } from "react";
 import { chakra } from "@chakra-ui/system";
 import { Overlay, usePopover, DismissButton } from "@react-aria/overlays";
+import { useDatePickerContext } from "./date-picker.context";
 import type { AriaPopoverProps } from "@react-aria/overlays";
-import type { DatePickerState } from "@react-stately/datepicker";
 
-interface DatePickerPopoverProps extends Omit<AriaPopoverProps, "popoverRef"> {
+interface DatePickerPopoverProps
+  extends Omit<AriaPopoverProps, "popoverRef" | "triggerRef"> {
   children: React.ReactNode;
-  state: DatePickerState;
 }
 
 export const DatePickerPopover = ({
   children,
-  state,
   ...props
 }: DatePickerPopoverProps) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const { state, ref: triggerRef } = useDatePickerContext();
 
-  const { close } = state;
   const { popoverProps, underlayProps } = usePopover(
-    { ...props, popoverRef: ref },
+    { triggerRef, ...props, popoverRef: ref },
     state,
   );
 
@@ -41,9 +40,9 @@ export const DatePickerPopover = ({
         outline="none"
         overflow="auto"
       >
-        <DismissButton onDismiss={close} />
+        <DismissButton onDismiss={state.close} />
         {children}
-        <DismissButton onDismiss={close} />
+        <DismissButton onDismiss={state.close} />
       </chakra.div>
     </Overlay>
   );

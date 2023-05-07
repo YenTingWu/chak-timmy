@@ -2,15 +2,17 @@ import { useRef } from "react";
 import { chakra } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
 import { useButton } from "@react-aria/button";
+import { useDatePickerContext } from "./date-picker.context";
 
-export const DatePickerTriggerButton = (
-  props: React.ButtonHTMLAttributes<HTMLButtonElement>,
-) => {
+export const DatePickerTriggerButton = () => {
   const ref = useRef<HTMLButtonElement>(null);
-  const { buttonProps } = useButton(props, ref);
+  const { buttonProps: buttonPropsFromDatePickerContext } =
+    useDatePickerContext();
+  const { buttonProps } = useButton(buttonPropsFromDatePickerContext, ref);
 
   return (
     <chakra.button
+      {...buttonProps}
       w="32px"
       h="32px"
       p="0"
@@ -24,7 +26,6 @@ export const DatePickerTriggerButton = (
         border: "none",
         outline: "none",
       }}
-      {...buttonProps}
       ref={ref}
     >
       <Icon

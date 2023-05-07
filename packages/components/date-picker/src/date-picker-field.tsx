@@ -5,16 +5,24 @@ import { useDateFieldState } from "@react-stately/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerSegment } from "./date-picker-segment";
-import { DatePickerTriggerButton } from "./date-picker-trigger-button";
-import type { DateValue, AriaDatePickerProps } from "@react-aria/datepicker";
+import { useDatePickerContext } from "./date-picker.context";
 
-interface DatePickerFieldProps extends AriaDatePickerProps<DateValue> {}
-
-export const DatePickerField = (props: DatePickerFieldProps) => {
+export const DatePickerField = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const { fieldProps: fieldPropsFromDatePickerContext } =
+    useDatePickerContext();
+
   const { locale } = useLocale();
-  const state = useDateFieldState({ ...props, locale, createCalendar });
-  const { fieldProps } = useDateField(props, state, ref);
+  const state = useDateFieldState({
+    ...fieldPropsFromDatePickerContext,
+    locale,
+    createCalendar,
+  });
+  const { fieldProps } = useDateField(
+    fieldPropsFromDatePickerContext,
+    state,
+    ref,
+  );
 
   if (state.validationState === "invalid") {
     return null;
@@ -22,20 +30,18 @@ export const DatePickerField = (props: DatePickerFieldProps) => {
 
   return (
     <chakra.div
-      border="1px solid #d9d9d9"
+      px="12px"
+      mr="auto"
       display="flex"
       alignItems="center"
       justifyContent="space-between"
       color="#d9d9d9"
-      py="2"
-      minW="200px"
       {...fieldProps}
       ref={ref}
     >
       {state.segments.map((segment, i) => (
         <DatePickerSegment key={i} segment={segment} state={state} />
       ))}
-      <DatePickerTriggerButton />
     </chakra.div>
   );
 };

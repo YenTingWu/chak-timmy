@@ -1,11 +1,11 @@
 import "./App.css";
-import { DatePicker } from "date-picker";
+import { DatePickerExample } from "date-picker";
 
 function App() {
   return (
     <>
       <div>
-        <DatePicker />
+        <DatePickerExample />
       </div>
     </>
   );
