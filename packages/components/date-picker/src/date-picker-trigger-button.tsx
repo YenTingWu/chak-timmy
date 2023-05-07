@@ -17,6 +17,7 @@ export const DatePickerTriggerButton = () => {
       h="32px"
       p="0"
       m="0"
+      transition="none"
       bgColor="transparent"
       _hover={{
         border: "none",
