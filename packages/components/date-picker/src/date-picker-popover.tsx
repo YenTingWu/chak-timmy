@@ -32,11 +32,7 @@ export const DatePickerPopover = ({
         borderColor="gray.300"
         borderRadius="md"
         position="absolute"
-        zIndex="10"
-        top="100%"
         boxShadow="lg"
-        marginTop="1"
-        padding="6"
         outline="none"
         overflow="auto"
       >
