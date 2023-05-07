@@ -1,7 +1,14 @@
+import { useRef } from "react";
 import { chakra } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
+import { useButton } from "@react-aria/button";
 
-export const DatePickerTriggerButton = () => {
+export const DatePickerTriggerButton = (
+  props: React.ButtonHTMLAttributes<HTMLButtonElement>,
+) => {
+  const ref = useRef<HTMLButtonElement>(null);
+  const { buttonProps } = useButton(props, ref);
+
   return (
     <chakra.button
       w="32px"
@@ -17,6 +24,8 @@ export const DatePickerTriggerButton = () => {
         border: "none",
         outline: "none",
       }}
+      {...buttonProps}
+      ref={ref}
     >
       <Icon
         xmlns="http://www.w3.org/2000/svg"
