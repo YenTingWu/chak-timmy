@@ -40,12 +40,11 @@ export const DatePickerCalendarGridCell = ({
         p="0"
         border="none"
         lineHeight="32px"
-        fontWeight={400}
-        fontSize="12px"
         alignItems="center"
         justifyContent="center"
         textAlign="center"
         bgColor={isSelected ? "#2869CA" : "transparent"}
+        color={isSelected ? "#FFFFFF" : "#1D1D1D"}
         borderRadius="100%"
       >
         {date.day}

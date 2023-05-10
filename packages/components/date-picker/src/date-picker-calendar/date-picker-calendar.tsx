@@ -7,7 +7,7 @@ import { DatePickerCalendarPrevButton } from "./date-picker-calendar-prev-button
 import { DatePickerCalendarNextButton } from "./date-picker-calendar-next-button";
 import { DatePickerCalendarGrid } from "./date-picker-calendar-grid";
 import { createCalendar } from "@internationalized/date";
-import { useDatePickerContext } from "./date-picker.context";
+import { useDatePickerContext } from "../date-picker.context";
 
 export const DatePickerCalendar = () => {
   const { calendarProps: calendarPropsFromDatePickerContext } =
@@ -23,7 +23,16 @@ export const DatePickerCalendar = () => {
     useCalendar(calendarPropsFromDatePickerContext, state);
 
   return (
-    <chakra.div {...calendarProps} className="calendar">
+    <chakra.div
+      {...calendarProps}
+      className="calendar"
+      sx={{
+        "*": {
+          fontWeight: 400,
+          fontSize: "12px",
+        },
+      }}
+    >
       <DatePickerCalendarHeader>
         <chakra.span>{title}</chakra.span>
         <chakra.div display="flex" alignItems="center">
