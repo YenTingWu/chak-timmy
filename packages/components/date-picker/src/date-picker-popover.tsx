@@ -21,6 +21,10 @@ export const DatePickerPopover = ({
     state,
   );
 
+  if (state.isOpen === false) {
+    return null;
+  }
+
   return (
     <Overlay>
       <chakra.div {...underlayProps} display="fixed" inset="0" />
