@@ -26,7 +26,6 @@ export const DatePickerCalendar = () => {
     <chakra.div {...calendarProps} className="calendar">
       <DatePickerCalendarHeader>
         <chakra.span>{title}</chakra.span>
-
         <chakra.div display="flex" alignItems="center">
           <DatePickerCalendarPrevButton {...prevButtonProps} />
           <DatePickerCalendarNextButton {...nextButtonProps} />
