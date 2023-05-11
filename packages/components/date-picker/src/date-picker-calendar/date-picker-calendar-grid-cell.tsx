@@ -45,26 +45,23 @@ export const DatePickerCalendarGridCell = ({
         alignItems="center"
         justifyContent="center"
         textAlign="center"
-        bgColor={
-          isDisabled
-            ? "white"
-            : isToday
-            ? "transparent"
-            : isSelected
-            ? "#2869CA"
-            : "white"
-        }
-        color={
-          isDisabled
-            ? "#D9D9D9"
-            : isToday
-            ? "#2869CA"
-            : isSelected
-            ? "#FFFFFF"
-            : "#1D1D1D"
-        }
+        transition="0.15s ease all"
+        bgColor={isToday ? "transparent" : isSelected ? "#2869CA" : "white"}
+        color={isToday ? "#2869CA" : isSelected ? "#FFFFFF" : "#1D1D1D"}
         cursor={isDisabled ? "default" : "pointer"}
         borderRadius="100%"
+        _hover={{
+          bgColor: isSelected ? "#2869CA" : "#EEF6FF",
+        }}
+        _focus={{
+          bgColor: isSelected ? "#2869CA" : "#EEF6FF",
+        }}
+        _disabled={{
+          bgColor: "white",
+          color: "#D9D9D9",
+          border: isToday ? "1px solid #D9D9D9" : "none",
+        }}
+        disabled={isDisabled}
       >
         {date.day}
       </chakra.div>

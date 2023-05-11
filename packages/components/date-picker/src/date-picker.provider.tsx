@@ -10,7 +10,7 @@ interface DatePickerProps extends DatePickerStateOptions<DateValue> {
 }
 
 export const DatePickerProvider = ({ children, ...props }: DatePickerProps) => {
-  const state = useDatePickerState({ ...props, shouldCloseOnSelect: false });
+  const state = useDatePickerState({ ...props });
   const ref = useRef<HTMLDivElement>(null);
   const elementProps = useDatePicker(props, state, ref);
 
