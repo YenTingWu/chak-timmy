@@ -2,7 +2,12 @@ import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { useCalendarGrid } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
-import { getWeeksInMonth } from "@internationalized/date";
+import {
+  getWeeksInMonth,
+  today as createToday,
+  getLocalTimeZone,
+  isEqualDay,
+} from "@internationalized/date";
 import { DatePickerCalendarGridCell } from "./date-picker-calendar-grid-cell";
 import type { CalendarState } from "@react-stately/calendar";
 import type { AriaCalendarGridProps } from "@react-aria/calendar";
@@ -10,6 +15,8 @@ import type { AriaCalendarGridProps } from "@react-aria/calendar";
 interface DatePickerCalendarGridProps extends AriaCalendarGridProps {
   state: CalendarState;
 }
+
+const today = createToday(getLocalTimeZone());
 
 export const DatePickerCalendarGrid = ({
   state,
@@ -44,15 +51,22 @@ export const DatePickerCalendarGrid = ({
 
         return (
           <chakra.div
+            mt="0.5rem"
             key={weekIndex}
             role="row"
             display="flex"
             alignItems="stretch"
           >
             {datesInWeek.map((date, i) => {
+              const isToday = date ? isEqualDay(date, today) : false;
+
               return date ? (
                 <React.Fragment key={`${date.year}_${date.month}_${date.day}`}>
-                  <DatePickerCalendarGridCell state={state} date={date} />
+                  <DatePickerCalendarGridCell
+                    state={state}
+                    date={date}
+                    isToday={isToday}
+                  />
                   {i !== datesInWeek.length - 1 && <chakra.div w="0.5rem" />}
                 </React.Fragment>
               ) : (

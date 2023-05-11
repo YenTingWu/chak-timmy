@@ -1,21 +1,23 @@
 import { useRef } from "react";
 import { chakra } from "@chakra-ui/system";
 import { useCalendarCell } from "@react-aria/calendar";
-import type { CalendarDate } from "@internationalized/date";
+import { CalendarDate } from "@internationalized/date";
 import type { CalendarState } from "@react-stately/calendar";
 
 interface DatePickerCalendarGridCellProps {
   date: CalendarDate;
   state: CalendarState;
+  isToday: boolean;
 }
 
 export const DatePickerCalendarGridCell = ({
   date,
   state,
+  isToday,
 }: DatePickerCalendarGridCellProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const { cellProps, buttonProps, isSelected } = useCalendarCell(
+  const { cellProps, buttonProps, isSelected, isDisabled } = useCalendarCell(
     { date },
     state,
     ref,
@@ -38,13 +40,30 @@ export const DatePickerCalendarGridCell = ({
         w="32px"
         h="32px"
         p="0"
-        border="none"
+        border={isToday ? "1px solid #2869CA" : "none"}
         lineHeight="32px"
         alignItems="center"
         justifyContent="center"
         textAlign="center"
-        bgColor={isSelected ? "#2869CA" : "transparent"}
-        color={isSelected ? "#FFFFFF" : "#1D1D1D"}
+        bgColor={
+          isDisabled
+            ? "white"
+            : isToday
+            ? "transparent"
+            : isSelected
+            ? "#2869CA"
+            : "white"
+        }
+        color={
+          isDisabled
+            ? "#D9D9D9"
+            : isToday
+            ? "#2869CA"
+            : isSelected
+            ? "#FFFFFF"
+            : "#1D1D1D"
+        }
+        cursor={isDisabled ? "default" : "pointer"}
         borderRadius="100%"
       >
         {date.day}

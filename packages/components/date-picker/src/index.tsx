@@ -6,6 +6,7 @@ import { DatePickerField } from "./date-picker-field";
 import { DatePickerPopover } from "./date-picker-popover";
 import { DatePickerDialog } from "./date-picker-dialog";
 import { DatePickerTriggerButton } from "./date-picker-trigger-button";
+import { DatePickerCalendar } from "./date-picker-calendar";
 import type { DateValue } from "@react-aria/datepicker";
 import type { DatePickerStateOptions } from "@react-stately/datepicker";
 
@@ -15,18 +16,25 @@ export const DatePickerSke = () => {
   const { state } = useDatePickerContext();
 
   return (
-    <chakra.div fontWeight={400} fontSize="16px" lineHeight="20px">
+    <chakra.div
+      fontWeight={400}
+      fontSize="16px"
+      lineHeight="20px"
+      sx={{
+        "*": {
+          fontFamily: "'Inter'",
+        },
+      }}
+    >
       <DatePickerGroup>
         <DatePickerField />
         <DatePickerTriggerButton />
       </DatePickerGroup>
-      {state.isOpen && (
-        <DatePickerPopover>
-          <DatePickerDialog>
-            <div> asdkjfalsdfjlkajsdflkjasldkfjalksdkjflkasdf</div>
-          </DatePickerDialog>
-        </DatePickerPopover>
-      )}
+      <DatePickerPopover>
+        <DatePickerDialog>
+          <DatePickerCalendar />
+        </DatePickerDialog>
+      </DatePickerPopover>
     </chakra.div>
   );
 };
