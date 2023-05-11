@@ -8,6 +8,7 @@ import { DatePickerCalendarNextButton } from "./date-picker-calendar-next-button
 import { DatePickerCalendarGrid } from "./date-picker-calendar-grid";
 import { createCalendar } from "@internationalized/date";
 import { useDatePickerContext } from "../date-picker.context";
+import { DatePickerCalendarProvider } from "./date-picker-calendar.provider";
 
 export const DatePickerCalendar = () => {
   const { calendarProps: calendarPropsFromDatePickerContext } =
@@ -18,29 +19,25 @@ export const DatePickerCalendar = () => {
     locale,
     createCalendar,
   });
-
-  const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(calendarPropsFromDatePickerContext, state);
+  const elementProps = useCalendar(calendarPropsFromDatePickerContext, state);
+  const { calendarProps, title } = elementProps;
 
   return (
-    <chakra.div
-      {...calendarProps}
-      className="calendar"
-      sx={{
-        "*": {
-          fontWeight: 400,
-          fontSize: "12px",
-        },
-      }}
-    >
-      <DatePickerCalendarHeader>
-        <chakra.span>{title}</chakra.span>
-        <chakra.div display="flex" alignItems="center">
-          <DatePickerCalendarPrevButton {...prevButtonProps} />
-          <DatePickerCalendarNextButton {...nextButtonProps} />
-        </chakra.div>
-      </DatePickerCalendarHeader>
-      <DatePickerCalendarGrid state={state} />
-    </chakra.div>
+    <DatePickerCalendarProvider value={{ ...elementProps, state }}>
+      <chakra.div
+        {...calendarProps}
+        className="calendar"
+        sx={{ "*": { fontWeight: 400, fontSize: "12px" } }}
+      >
+        <DatePickerCalendarHeader>
+          <chakra.span>{title}</chakra.span>
+          <chakra.div display="flex" alignItems="center">
+            <DatePickerCalendarPrevButton />
+            <DatePickerCalendarNextButton />
+          </chakra.div>
+        </DatePickerCalendarHeader>
+        <DatePickerCalendarGrid />
+      </chakra.div>
+    </DatePickerCalendarProvider>
   );
 };
