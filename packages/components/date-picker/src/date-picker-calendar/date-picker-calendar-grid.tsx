@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { chakra } from "@chakra-ui/system";
 import { useCalendarGrid } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
@@ -29,7 +29,7 @@ export const DatePickerCalendarGrid = ({
     <chakra.div {...gridProps} py="8px" px="20px">
       <chakra.div {...headerProps} display="flex" alignItems="stretch">
         {weekDays.map((day, index) => (
-          <React.Fragment key={`${day}_${index}`}>
+          <Fragment key={`${day}_${index}`}>
             <chakra.div
               w="32px"
               h="32px"
@@ -41,7 +41,7 @@ export const DatePickerCalendarGrid = ({
               {day}
             </chakra.div>
             {index !== weekDays.length - 1 && <chakra.div w="0.5rem" />}
-          </React.Fragment>
+          </Fragment>
         ))}
       </chakra.div>
       {Array.from({ length: weeksInMonth }, (_, weekIndex) => {
@@ -59,19 +59,19 @@ export const DatePickerCalendarGrid = ({
               const isToday = date ? isEqualDay(date, today) : false;
 
               return date ? (
-                <React.Fragment key={`${date.year}_${date.month}_${date.day}`}>
+                <Fragment key={`${date.year}_${date.month}_${date.day}`}>
                   <DatePickerCalendarGridCell
                     state={state}
                     date={date}
                     isToday={isToday}
                   />
                   {i !== datesInWeek.length - 1 && <chakra.div w="0.5rem" />}
-                </React.Fragment>
+                </Fragment>
               ) : (
-                <React.Fragment key={`${date}_${i}`}>
+                <Fragment key={`${date}_${i}`}>
                   <chakra.div flex="1" />
                   {i !== datesInWeek.length - 1 && <chakra.div w="0.5rem" />}
-                </React.Fragment>
+                </Fragment>
               );
             })}
           </chakra.div>
