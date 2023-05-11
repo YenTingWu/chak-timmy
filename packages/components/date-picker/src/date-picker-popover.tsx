@@ -11,13 +11,19 @@ interface DatePickerPopoverProps
 
 export const DatePickerPopover = ({
   children,
+  placement = "bottom start",
   ...props
 }: DatePickerPopoverProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { state, ref: triggerRef } = useDatePickerContext();
 
   const { popoverProps, underlayProps } = usePopover(
-    { triggerRef, ...props, popoverRef: ref },
+    {
+      triggerRef,
+      placement,
+      ...props,
+      popoverRef: ref,
+    },
     state,
   );
 
@@ -32,13 +38,8 @@ export const DatePickerPopover = ({
         {...popoverProps}
         ref={ref}
         background="white"
-        border="1px solid"
-        borderColor="gray.300"
-        borderRadius="md"
-        position="absolute"
-        boxShadow="lg"
-        outline="none"
-        overflow="auto"
+        boxShadow="1px 1px 3px 1px rgba(0, 0, 0, .25)"
+        borderRadius="6px"
       >
         <DismissButton onDismiss={state.close} />
         {children}
