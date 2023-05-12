@@ -26,7 +26,12 @@ export const DatePickerCalendarGrid = ({
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
 
   return (
-    <chakra.div {...gridProps} py="8px" px="20px">
+    <chakra.div
+      {...gridProps}
+      py="8px"
+      px="20px"
+      sx={{ "*": { fontWeight: 400, fontSize: "0.75rem" } }}
+    >
       <chakra.div {...headerProps} display="flex" alignItems="stretch">
         {weekDays.map((day, index) => (
           <Fragment key={`${day}_${index}`}>

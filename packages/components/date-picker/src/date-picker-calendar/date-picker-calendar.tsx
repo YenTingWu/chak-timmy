@@ -24,13 +24,16 @@ export const DatePickerCalendar = () => {
 
   return (
     <DatePickerCalendarProvider value={{ ...elementProps, state }}>
-      <chakra.div
-        {...calendarProps}
-        className="calendar"
-        sx={{ "*": { fontWeight: 400, fontSize: "12px" } }}
-      >
+      <chakra.div {...calendarProps} className="calendar">
         <DatePickerCalendarHeader>
-          <chakra.span>{title}</chakra.span>
+          <chakra.h3
+            color="#1D1D1D"
+            fontSize="1rem"
+            lineHeight="20px"
+            fontWeight={500}
+          >
+            {title}
+          </chakra.h3>
           <chakra.div display="flex" alignItems="center">
             <DatePickerCalendarPrevButton />
             <DatePickerCalendarNextButton />
