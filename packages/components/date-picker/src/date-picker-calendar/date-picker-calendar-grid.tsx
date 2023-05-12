@@ -7,22 +7,23 @@ import {
   today as createToday,
   getLocalTimeZone,
   isEqualDay,
+  endOfMonth,
 } from "@internationalized/date";
 import { DatePickerCalendarGridCell } from "./date-picker-calendar-grid-cell";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
-import type { AriaCalendarGridProps } from "@react-aria/calendar";
-
-interface DatePickerCalendarGridProps extends AriaCalendarGridProps {}
 
 const today = createToday(getLocalTimeZone());
 
-export const DatePickerCalendarGrid = ({
-  ...props
-}: DatePickerCalendarGridProps) => {
-  const { startDate } = props;
+export const DatePickerCalendarGrid = () => {
   const { locale } = useLocale();
   const { state } = useDatePickerCalendarContext();
-  const { gridProps, headerProps, weekDays } = useCalendarGrid(props, state);
+  const startDate = state.visibleRange.start;
+  const endDate = endOfMonth(startDate);
+
+  const { gridProps, headerProps, weekDays } = useCalendarGrid(
+    { startDate, endDate },
+    state,
+  );
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
 
   return (

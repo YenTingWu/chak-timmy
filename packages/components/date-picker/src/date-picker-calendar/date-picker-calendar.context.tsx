@@ -1,9 +1,12 @@
 import { createContext, useContext } from "react";
 import type { CalendarAria } from "@react-aria/calendar";
 import type { CalendarState } from "@react-stately/calendar";
+import type { GridDisplay } from "./date-picker-calendar-types";
 
-interface DatePickerContextProps extends CalendarAria {
+export interface DatePickerContextProps extends CalendarAria {
   state: CalendarState;
+  gridDisplay: GridDisplay;
+  setGridDisplay: React.Dispatch<React.SetStateAction<GridDisplay>>;
 }
 
 export const DatePickerCalendarContext =

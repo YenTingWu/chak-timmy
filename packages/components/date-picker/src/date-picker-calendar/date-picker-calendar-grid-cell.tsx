@@ -53,7 +53,8 @@ export const DatePickerCalendarGridCell = ({
           bgColor: isSelected ? "#2869CA" : "#EEF6FF",
         }}
         _focus={{
-          bgColor: isSelected ? "#2869CA" : "#EEF6FF",
+          bgColor: "none",
+          outline: "none",
         }}
         _disabled={{
           bgColor: "white",

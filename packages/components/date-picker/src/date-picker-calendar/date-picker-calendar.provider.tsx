@@ -1,14 +1,9 @@
 import { DatePickerCalendarContext } from "./date-picker-calendar.context";
-import type { CalendarAria } from "@react-aria/calendar";
-import type { CalendarState } from "@react-stately/calendar";
-
-interface DatePickerCalendarValue extends CalendarAria {
-  state: CalendarState;
-}
+import type { DatePickerContextProps } from "./date-picker-calendar.context";
 
 interface DatePickerCalendarProps {
   children: React.ReactNode;
-  value: DatePickerCalendarValue;
+  value: DatePickerContextProps;
 }
 
 export const DatePickerCalendarProvider = ({
