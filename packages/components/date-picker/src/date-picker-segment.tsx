@@ -1,5 +1,5 @@
-import { chakra } from "@chakra-ui/system";
 import React from "react";
+import { chakra } from "@chakra-ui/system";
 import { useDateSegment } from "@react-aria/datepicker";
 import type { DateFieldState, DateSegment } from "@react-stately/datepicker";
 

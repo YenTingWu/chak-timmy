@@ -26,7 +26,6 @@ export const IconButton = forwardRef<IconButtonProps, "button">(
         _focus={{
           border: "none",
           outline: "none",
-          bgColor: "#D9D9D9",
         }}
         ref={ref}
         {...rest}
