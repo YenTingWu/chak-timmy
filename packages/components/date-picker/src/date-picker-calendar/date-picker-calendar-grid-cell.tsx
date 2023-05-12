@@ -46,9 +46,8 @@ export const DatePickerCalendarGridCell = ({
         justifyContent="center"
         textAlign="center"
         transition="0.15s ease all"
-        bgColor={isToday ? "transparent" : isSelected ? "#2869CA" : "white"}
-        color={isToday ? "#2869CA" : isSelected ? "#FFFFFF" : "#1D1D1D"}
-        cursor={isDisabled ? "default" : "pointer"}
+        bgColor={isSelected ? "#2869CA" : isToday ? "transparent" : "white"}
+        color={isSelected ? "white" : isToday ? "#2869CA" : "#1D1D1D"}
         borderRadius="100%"
         _hover={{
           bgColor: isSelected ? "#2869CA" : "#EEF6FF",
@@ -60,6 +59,7 @@ export const DatePickerCalendarGridCell = ({
           bgColor: "white",
           color: "#D9D9D9",
           border: isToday ? "1px solid #D9D9D9" : "none",
+          cursor: "default",
         }}
         disabled={isDisabled}
       >
