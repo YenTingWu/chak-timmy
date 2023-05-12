@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { Overlay, usePopover, DismissButton } from "@react-aria/overlays";
 import { useDatePickerContext } from "./date-picker.context";
@@ -14,7 +14,7 @@ export const DatePickerPopover = ({
   placement = "bottom start",
   ...props
 }: DatePickerPopoverProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const { state, ref: triggerRef } = useDatePickerContext();
 
   const { popoverProps, underlayProps } = usePopover(
@@ -38,7 +38,7 @@ export const DatePickerPopover = ({
         {...popoverProps}
         ref={ref}
         background="white"
-        boxShadow="1px 1px 3px 1px rgba(0, 0, 0, .25)"
+        boxShadow="2px 4px 8px rgba(0, 0, 0, 0.16)"
         borderRadius="6px"
       >
         <DismissButton onDismiss={state.close} />

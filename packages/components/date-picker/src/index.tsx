@@ -1,6 +1,5 @@
 import { chakra } from "@chakra-ui/system";
 import { DatePickerProvider } from "./date-picker.provider";
-import { useDatePickerContext } from "./date-picker.context";
 import { DatePickerGroup } from "./date-picker-group";
 import { DatePickerField } from "./date-picker-field";
 import { DatePickerPopover } from "./date-picker-popover";
@@ -13,8 +12,6 @@ import type { DatePickerStateOptions } from "@react-stately/datepicker";
 interface DatePickerProps extends DatePickerStateOptions<DateValue> {}
 
 export const DatePickerSke = () => {
-  const { state } = useDatePickerContext();
-
   return (
     <chakra.div
       fontWeight={400}

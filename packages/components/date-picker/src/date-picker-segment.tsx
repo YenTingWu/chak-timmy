@@ -1,5 +1,5 @@
 import { chakra } from "@chakra-ui/system";
-import { useRef } from "react";
+import React from "react";
 import { useDateSegment } from "@react-aria/datepicker";
 import type { DateFieldState, DateSegment } from "@react-stately/datepicker";
 
@@ -13,7 +13,7 @@ export const DatePickerSegment = ({
   state,
 }: DatePickerSegmentProps) => {
   const { type } = segment;
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
 
   return (

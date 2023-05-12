@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import React from "react";
 import { Icon } from "@chakra-ui/icons";
 import { IconButton } from "./icon-button";
 import { useButton } from "@react-aria/button";
 import { useDatePickerContext } from "./date-picker.context";
 
 export const DatePickerTriggerButton = () => {
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = React.useRef<HTMLButtonElement>(null);
   const { buttonProps: buttonPropsFromDatePickerContext } =
     useDatePickerContext();
   const { buttonProps } = useButton(buttonPropsFromDatePickerContext, ref);

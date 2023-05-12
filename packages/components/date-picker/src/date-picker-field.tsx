@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { useDateField } from "@react-aria/datepicker";
 import { useDateFieldState } from "@react-stately/datepicker";
@@ -8,7 +8,7 @@ import { DatePickerSegment } from "./date-picker-segment";
 import { useDatePickerContext } from "./date-picker.context";
 
 export const DatePickerField = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const { fieldProps: fieldPropsFromDatePickerContext } =
     useDatePickerContext();
 

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import React from "react";
 import type { CalendarAria } from "@react-aria/calendar";
 import type { CalendarState } from "@react-stately/calendar";
 import type { GridDisplay } from "./date-picker-calendar-types";
@@ -10,10 +10,10 @@ export interface DatePickerContextProps extends CalendarAria {
 }
 
 export const DatePickerCalendarContext =
-  createContext<DatePickerContextProps | null>(null);
+  React.createContext<DatePickerContextProps | null>(null);
 
 export const useDatePickerCalendarContext = () => {
-  const context = useContext(DatePickerCalendarContext);
+  const context = React.useContext(DatePickerCalendarContext);
 
   if (context == null) {
     throw new Error(

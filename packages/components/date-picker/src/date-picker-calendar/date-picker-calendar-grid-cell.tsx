@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { useCalendarCell } from "@react-aria/calendar";
 import { CalendarDate } from "@internationalized/date";
@@ -15,7 +15,7 @@ export const DatePickerCalendarGridCell = ({
   state,
   isToday,
 }: DatePickerCalendarGridCellProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
 
   const { cellProps, buttonProps, isSelected, isDisabled } = useCalendarCell(
     { date },
