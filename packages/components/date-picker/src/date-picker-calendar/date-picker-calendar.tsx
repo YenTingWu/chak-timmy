@@ -8,6 +8,7 @@ import { DatePickerCalendarTitle } from "./date-picker-calendar-title";
 import { DatePickerCalendarPrevButton } from "./date-picker-calendar-prev-button";
 import { DatePickerCalendarNextButton } from "./date-picker-calendar-next-button";
 import { DatePickerCalendarGrid } from "./date-picker-calendar-grid";
+import { DatePickerCalendarYearGrid } from "./date-picker-calendar-year-grid";
 import { createCalendar } from "@internationalized/date";
 import { useDatePickerContext } from "../date-picker.context";
 import { DatePickerCalendarProvider } from "./date-picker-calendar.provider";
@@ -34,7 +35,7 @@ export const DatePickerCalendar = () => {
         setGridDisplay,
       }}
     >
-      <chakra.div {...elementProps.calendarProps}>
+      <chakra.div {...elementProps.calendarProps} overflowY="auto">
         <DatePickerCalendarHeader>
           <DatePickerCalendarTitle />
           <chakra.div display="flex" alignItems="center">
@@ -42,7 +43,11 @@ export const DatePickerCalendar = () => {
             <DatePickerCalendarNextButton />
           </chakra.div>
         </DatePickerCalendarHeader>
-        <DatePickerCalendarGrid />
+        {gridDisplay === "day" ? (
+          <DatePickerCalendarGrid />
+        ) : (
+          <DatePickerCalendarYearGrid />
+        )}
       </chakra.div>
     </DatePickerCalendarProvider>
   );
