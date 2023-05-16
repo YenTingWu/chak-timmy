@@ -12,6 +12,8 @@ export const DatePickerCalendarYearGridCell = ({
 }: DatePickerCalendarYearGridCellProps) => {
   const { state, setGridDisplay } = useDatePickerCalendarContext();
 
+  const ref = React.useRef<HTMLDivElement>(null);
+
   const isSelected = React.useMemo(
     () => isEqualYear(new CalendarDate(year, 1, 1), state.visibleRange.start),
     [state],
@@ -26,6 +28,16 @@ export const DatePickerCalendarYearGridCell = ({
     setGridDisplay("day");
   }, [state, setGridDisplay]);
 
+  React.useEffect(() => {
+    const cell = ref.current;
+
+    if (!isSelected || cell == null) return;
+
+    cell.scrollIntoView({
+      block: "center",
+    });
+  }, [isSelected]);
+
   return (
     <chakra.div
       flex="1"
@@ -33,6 +45,7 @@ export const DatePickerCalendarYearGridCell = ({
       alignItems="center"
       justifyContent="center"
       w="100%"
+      ref={ref}
     >
       <chakra.div
         as="button"
