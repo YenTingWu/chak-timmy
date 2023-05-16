@@ -3,6 +3,7 @@ import { chakra } from "@chakra-ui/system";
 import { useCalendar } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
 import { useCalendarState } from "@react-stately/calendar";
+import { DatePickerCalendarContent } from "./date-picker-calendar-content";
 import { DatePickerCalendarHeader } from "./date-picker-calendar-header";
 import { DatePickerCalendarTitle } from "./date-picker-calendar-title";
 import { DatePickerCalendarPrevButton } from "./date-picker-calendar-prev-button";
@@ -34,7 +35,7 @@ export const DatePickerCalendar = () => {
         setGridDisplay,
       }}
     >
-      <chakra.div {...elementProps.calendarProps} overflowY="auto">
+      <DatePickerCalendarContent>
         <DatePickerCalendarHeader>
           <DatePickerCalendarTitle />
           <chakra.div display="flex" alignItems="center">
@@ -43,7 +44,7 @@ export const DatePickerCalendar = () => {
           </chakra.div>
         </DatePickerCalendarHeader>
         <DatePickerCalendarGrid />
-      </chakra.div>
+      </DatePickerCalendarContent>
     </DatePickerCalendarProvider>
   );
 };
