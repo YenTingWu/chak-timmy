@@ -1,6 +1,6 @@
 import React from "react";
 import { chakra } from "@chakra-ui/system";
-import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
+import { useDatePickerCalendarContext } from "../date-picker-calendar.context";
 import { CalendarDate, isEqualYear } from "@internationalized/date";
 
 interface DatePickerCalendarYearGridCellProps {

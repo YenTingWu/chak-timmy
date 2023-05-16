@@ -9,12 +9,12 @@ import {
   isEqualDay,
   endOfMonth,
 } from "@internationalized/date";
-import { DatePickerCalendarGridCell } from "./date-picker-calendar-grid-cell";
-import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
+import { DatePickerCalendarDateGridCell } from "./date-picker-calendar-date-grid-cell";
+import { useDatePickerCalendarContext } from "../date-picker-calendar.context";
 
 const today = createToday(getLocalTimeZone());
 
-export const DatePickerCalendarGrid = () => {
+export const DatePickerCalendarDateGrid = () => {
   const { locale } = useLocale();
   const { state } = useDatePickerCalendarContext();
   const startDate = state.visibleRange.start;
@@ -66,7 +66,7 @@ export const DatePickerCalendarGrid = () => {
 
               return date ? (
                 <React.Fragment key={`${date.year}_${date.month}_${date.day}`}>
-                  <DatePickerCalendarGridCell
+                  <DatePickerCalendarDateGridCell
                     state={state}
                     date={date}
                     isToday={isToday}
