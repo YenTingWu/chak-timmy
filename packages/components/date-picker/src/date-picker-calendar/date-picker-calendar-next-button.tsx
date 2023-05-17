@@ -1,13 +1,20 @@
 import React from "react";
+import { forwardRef } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
 import { IconButton } from "../icon-button";
 import { useButton } from "@react-aria/button";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
+import type { HTMLChakraProps } from "@chakra-ui/system";
 
-export const DatePickerCalendarNextButton = () => {
-  const ref = React.useRef<HTMLButtonElement>(null);
+export const DatePickerCalendarNextButton = forwardRef<
+  HTMLChakraProps<"button">,
+  "button"
+>((props, ref) => {
   const { nextButtonProps } = useDatePickerCalendarContext();
-  const { buttonProps } = useButton(nextButtonProps, ref);
+  const { buttonProps } = useButton(
+    nextButtonProps,
+    ref as React.RefObject<HTMLButtonElement>,
+  );
 
   return (
     <IconButton
@@ -29,6 +36,7 @@ export const DatePickerCalendarNextButton = () => {
           />
         </Icon>
       }
+      {...props}
     />
   );
-};
+});

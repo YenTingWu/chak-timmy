@@ -5,13 +5,24 @@ import { DatePickerField } from "./date-picker-field";
 import { DatePickerPopover } from "./date-picker-popover";
 import { DatePickerDialog } from "./date-picker-dialog";
 import { DatePickerTriggerButton } from "./date-picker-trigger-button";
-import { DatePickerCalendar } from "./date-picker-calendar";
+import {
+  DatePickerCalendar,
+  DatePickerCalendarContent,
+  DatePickerCalendarGrid,
+  DatePickerCalendarNextButton,
+  DatePickerCalendarHeader,
+  DatePickerCalendarTitle,
+  DatePickerCalendarPrevButton,
+} from "./date-picker-calendar";
+import { useDatePickerContext } from "./date-picker.context";
 import type { DateValue } from "@react-aria/datepicker";
 import type { DatePickerStateOptions } from "@react-stately/datepicker";
 
 interface DatePickerProps extends DatePickerStateOptions<DateValue> {}
 
 export const DatePickerSke = () => {
+  const { calendarProps } = useDatePickerContext();
+
   return (
     <chakra.div
       fontWeight={400}
@@ -29,7 +40,18 @@ export const DatePickerSke = () => {
       </DatePickerGroup>
       <DatePickerPopover>
         <DatePickerDialog>
-          <DatePickerCalendar />
+          <DatePickerCalendar {...calendarProps}>
+            <DatePickerCalendarContent>
+              <DatePickerCalendarHeader>
+                <DatePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DatePickerCalendarPrevButton />
+                  <DatePickerCalendarNextButton />
+                </chakra.div>
+              </DatePickerCalendarHeader>
+              <DatePickerCalendarGrid />
+            </DatePickerCalendarContent>
+          </DatePickerCalendar>
         </DatePickerDialog>
       </DatePickerPopover>
     </chakra.div>

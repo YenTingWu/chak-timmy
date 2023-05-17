@@ -1,7 +1,8 @@
-import { chakra } from "@chakra-ui/system";
+import { chakra, forwardRef } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
 import { IconButton } from "../icon-button";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
+import type { HTMLChakraProps } from "@chakra-ui/system";
 
 const DatePickerYearSelectIndicator = () => {
   const { gridDisplay, setGridDisplay } = useDatePickerCalendarContext();
@@ -32,17 +33,19 @@ const DatePickerYearSelectIndicator = () => {
   );
 };
 
-interface DatePickerCalendarTitleProps {
+interface DatePickerCalendarTitleProps extends HTMLChakraProps<"div"> {
   selectable?: boolean;
 }
 
-export const DatePickerCalendarTitle = ({
-  selectable = true,
-}: DatePickerCalendarTitleProps) => {
+export const DatePickerCalendarTitle = forwardRef<
+  DatePickerCalendarTitleProps,
+  "div"
+>((props, ref) => {
+  const { selectable = true, ...rest } = props;
   const { title } = useDatePickerCalendarContext();
 
   return (
-    <chakra.div display="flex" alignItems="center" flex="1">
+    <chakra.div display="flex" alignItems="center" flex="1" ref={ref} {...rest}>
       <chakra.h3
         color="#1D1D1D"
         fontSize="1rem"
@@ -54,4 +57,4 @@ export const DatePickerCalendarTitle = ({
       {selectable && <DatePickerYearSelectIndicator />}
     </chakra.div>
   );
-};
+});

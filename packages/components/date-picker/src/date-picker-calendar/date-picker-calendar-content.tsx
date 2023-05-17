@@ -14,7 +14,7 @@ export const DatePickerCalendarContent = forwardRef<
   const { calendarProps } = useDatePickerCalendarContext();
 
   return (
-    <chakra.div {...calendarProps} overflowY={overflowY} {...rest}>
+    <chakra.div ref={ref} {...calendarProps} overflowY={overflowY} {...rest}>
       {children}
     </chakra.div>
   );
