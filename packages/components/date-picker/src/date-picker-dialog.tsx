@@ -1,26 +1,43 @@
-import { chakra } from "@chakra-ui/system";
 import React from "react";
+import { chakra, forwardRef } from "@chakra-ui/system";
 import { useDialog } from "@react-aria/dialog";
 import { useDatePickerContext } from "./date-picker.context";
+import { useMergeRefs } from "./hooks";
+import type { HTMLChakraProps } from "@chakra-ui/system";
 
-interface DatePickerDialogProps {
+interface DatePickerDialogProps extends HTMLChakraProps<"div"> {
   children: React.ReactNode;
 }
 
-export const DatePickerDialog = ({ children }: DatePickerDialogProps) => {
-  const { dialogProps: dialogPropsFromDatePickerContext } =
-    useDatePickerContext();
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { dialogProps } = useDialog(dialogPropsFromDatePickerContext, ref);
+export const DatePickerDialog = forwardRef<DatePickerDialogProps, "div">(
+  (props, remoteRef) => {
+    const {
+      children,
+      outlineColor = "transparent",
+      minW = "312px",
+      ...rest
+    } = props;
+    const localRef = React.useRef<HTMLDivElement>(null);
 
-  return (
-    <chakra.div
-      {...dialogProps}
-      outlineColor="transparent"
-      minW="312px"
-      ref={ref}
-    >
-      {children}
-    </chakra.div>
-  );
-};
+    const ref = useMergeRefs(remoteRef, localRef);
+
+    const { dialogProps: dialogPropsFromDatePickerContext } =
+      useDatePickerContext();
+    const { dialogProps } = useDialog(
+      dialogPropsFromDatePickerContext,
+      localRef,
+    );
+
+    return (
+      <chakra.div
+        outlineColor={outlineColor}
+        minW={minW}
+        ref={ref}
+        {...dialogProps}
+        {...rest}
+      >
+        {children}
+      </chakra.div>
+    );
+  },
+);

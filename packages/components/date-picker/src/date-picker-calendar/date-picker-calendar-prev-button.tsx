@@ -4,17 +4,18 @@ import { Icon } from "@chakra-ui/icons";
 import { IconButton } from "../icon-button";
 import { useButton } from "@react-aria/button";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
+import { useMergeRefs } from "../hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 export const DatePickerCalendarPrevButton = forwardRef<
   HTMLChakraProps<"button">,
   "button"
->((props, ref) => {
+>((props, remoteRef) => {
+  const localRef = React.useRef<HTMLButtonElement>(null);
+  const ref = useMergeRefs(remoteRef, localRef);
+
   const { prevButtonProps } = useDatePickerCalendarContext();
-  const { buttonProps } = useButton(
-    prevButtonProps,
-    ref as React.RefObject<HTMLButtonElement>,
-  );
+  const { buttonProps } = useButton(prevButtonProps, localRef);
 
   return (
     <IconButton

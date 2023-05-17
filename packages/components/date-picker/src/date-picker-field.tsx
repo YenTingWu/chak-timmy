@@ -1,47 +1,67 @@
 import React from "react";
-import { chakra } from "@chakra-ui/system";
+import { chakra, forwardRef } from "@chakra-ui/system";
 import { useDateField } from "@react-aria/datepicker";
 import { useDateFieldState } from "@react-stately/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerSegment } from "./date-picker-segment";
 import { useDatePickerContext } from "./date-picker.context";
+import { useMergeRefs } from "./hooks";
+import type { HTMLChakraProps } from "@chakra-ui/system";
 
-export const DatePickerField = () => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { fieldProps: fieldPropsFromDatePickerContext } =
-    useDatePickerContext();
+interface DatePickerFieldProps extends HTMLChakraProps<"div"> {}
 
-  const { locale } = useLocale();
-  const state = useDateFieldState({
-    ...fieldPropsFromDatePickerContext,
-    locale,
-    createCalendar,
-  });
-  const { fieldProps } = useDateField(
-    fieldPropsFromDatePickerContext,
-    state,
-    ref,
-  );
+export const DatePickerField = forwardRef<DatePickerFieldProps, "div">(
+  (props, remoteRef) => {
+    const {
+      px = "12px",
+      mr = "auto",
+      display = "flex",
+      alignItems = "center",
+      justifyContent = "space-between",
+      color = "#d9d9d9",
+      ...rest
+    } = props;
 
-  if (state.validationState === "invalid") {
-    return null;
-  }
+    const localeRef = React.useRef<HTMLDivElement>(null);
 
-  return (
-    <chakra.div
-      px="12px"
-      mr="auto"
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      color="#d9d9d9"
-      {...fieldProps}
-      ref={ref}
-    >
-      {state.segments.map((segment, i) => (
-        <DatePickerSegment key={i} segment={segment} state={state} />
-      ))}
-    </chakra.div>
-  );
-};
+    const ref = useMergeRefs(remoteRef, localeRef);
+
+    const { fieldProps: fieldPropsFromDatePickerContext } =
+      useDatePickerContext();
+
+    const { locale } = useLocale();
+    const state = useDateFieldState({
+      ...fieldPropsFromDatePickerContext,
+      locale,
+      createCalendar,
+    });
+    const { fieldProps } = useDateField(
+      fieldPropsFromDatePickerContext,
+      state,
+      localeRef,
+    );
+
+    if (state.validationState === "invalid") {
+      return null;
+    }
+
+    return (
+      <chakra.div
+        ref={ref}
+        {...fieldProps}
+        px={px}
+        mr={mr}
+        display={display}
+        alignItems={alignItems}
+        justifyContent={justifyContent}
+        color={color}
+        {...rest}
+      >
+        {state.segments.map((segment, i) => (
+          <DatePickerSegment key={i} segment={segment} state={state} />
+        ))}
+      </chakra.div>
+    );
+  },
+);
