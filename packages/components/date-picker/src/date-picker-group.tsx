@@ -1,6 +1,6 @@
 import { chakra, forwardRef } from "@chakra-ui/system";
 import { useDatePickerContext } from "./date-picker.context";
-import { useMergeRefs } from "./hooks";
+import { useMergeRefs } from "hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 interface DatePickerGroupProps extends HTMLChakraProps<"div"> {

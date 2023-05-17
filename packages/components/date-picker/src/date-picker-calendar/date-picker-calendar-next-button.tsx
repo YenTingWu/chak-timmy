@@ -4,7 +4,7 @@ import { Icon } from "@chakra-ui/icons";
 import { IconButton } from "../icon-button";
 import { useButton } from "@react-aria/button";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
-import { useMergeRefs } from "../hooks";
+import { useMergeRefs } from "hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 export const DatePickerCalendarNextButton = forwardRef<

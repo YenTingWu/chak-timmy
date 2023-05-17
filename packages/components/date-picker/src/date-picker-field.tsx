@@ -6,7 +6,7 @@ import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerSegment } from "./date-picker-segment";
 import { useDatePickerContext } from "./date-picker.context";
-import { useMergeRefs } from "./hooks";
+import { useMergeRefs } from "hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 interface DatePickerFieldProps extends HTMLChakraProps<"div"> {}
