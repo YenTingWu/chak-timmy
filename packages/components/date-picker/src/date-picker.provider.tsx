@@ -1,21 +1,15 @@
-import { DatePickerContext } from "./date-picker.context";
 import React from "react";
-import { useDatePicker } from "@react-aria/datepicker";
-import { useDatePickerState } from "@react-stately/datepicker";
-import type { DateValue } from "@react-aria/datepicker";
-import type { DatePickerStateOptions } from "@react-stately/datepicker";
+import { DatePickerContext } from "./date-picker.context";
+import type { DatePickerContextProps } from "./date-picker.context";
 
-interface DatePickerProps extends DatePickerStateOptions<DateValue> {
+interface DatePickerProps {
   children: React.ReactNode;
+  value: DatePickerContextProps;
 }
 
-export const DatePickerProvider = ({ children, ...props }: DatePickerProps) => {
-  const state = useDatePickerState({ ...props });
-  const ref = React.useRef<HTMLDivElement>(null);
-  const elementProps = useDatePicker(props, state, ref);
-
+export const DatePickerProvider = ({ children, value }: DatePickerProps) => {
   return (
-    <DatePickerContext.Provider value={{ ...elementProps, state, ref }}>
+    <DatePickerContext.Provider value={value}>
       {children}
     </DatePickerContext.Provider>
   );

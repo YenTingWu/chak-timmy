@@ -4,27 +4,27 @@ import { useLocale } from "@react-aria/i18n";
 import { useCalendarState } from "@react-stately/calendar";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerCalendarProvider } from "./date-picker-calendar.provider";
+import { useDatePickerContext } from "../date-picker.context";
 import type { GridDisplay } from "./date-picker-calendar-types";
-import type { CalendarProps, DateValue } from "@react-aria/calendar";
 
-interface DatePickerCalendarProps extends CalendarProps<DateValue> {
+interface DatePickerCalendarProps {
   children: React.ReactNode;
 }
 
-export const DatePickerCalendar = ({
-  children,
-  ...props
-}: DatePickerCalendarProps) => {
+export const DatePickerCalendar = ({ children }: DatePickerCalendarProps) => {
+  const { calendarProps: calendarPropsFromDatePickerContext } =
+    useDatePickerContext();
+
   const [gridDisplay, setGridDisplay] = React.useState<GridDisplay>("day");
 
   const { locale } = useLocale();
 
   const state = useCalendarState({
-    ...props,
+    ...calendarPropsFromDatePickerContext,
     locale,
     createCalendar,
   });
-  const elementProps = useCalendar(props, state);
+  const elementProps = useCalendar(calendarPropsFromDatePickerContext, state);
 
   return (
     <DatePickerCalendarProvider

@@ -2,7 +2,7 @@ import React from "react";
 import type { DatePickerAria } from "@react-aria/datepicker";
 import type { DatePickerState } from "@react-stately/datepicker";
 
-interface DatePickerContextProps extends DatePickerAria {
+export interface DatePickerContextProps extends DatePickerAria {
   state: DatePickerState;
   ref: React.RefObject<HTMLDivElement>;
 }
