@@ -53,7 +53,7 @@ function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
     [_value],
   );
 
-  const onChange = React.useCallback(
+  const onChange = React.useMemo(
     () =>
       _onChange
         ? convertParamFromISOStringIntoCalendarDate(_onChange)
