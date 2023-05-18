@@ -17,7 +17,8 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
       borderRadius = "6px",
       border = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
       py = "8px",
-      minW = "240px",
+      w = "100%",
+      maxW = "240px",
       display = "flex",
       _focusWithin = { outline: "2px solid #2869CA" },
       ...rest
@@ -29,7 +30,8 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
         borderRadius={borderRadius}
         border={border}
         py={py}
-        minW={minW}
+        w={w}
+        maxW={maxW}
         display={display}
         {...groupProps}
         _focusWithin={_focusWithin}
