@@ -50,6 +50,9 @@ importers:
 
   apps/workshop:
     dependencies:
+      '@chakra-ui/system':
+        specifier: ^2.5.7
+        version: 2.5.7(@emotion/react@11.10.8)(@emotion/styled@11.10.8)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
