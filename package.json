@@ -4,12 +4,24 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.12",
+    "@storybook/addon-interactions": "^7.0.12",
+    "@storybook/addon-links": "^7.0.12",
+    "@storybook/blocks": "^7.0.12",
+    "@storybook/react": "^7.0.12",
+    "@storybook/react-vite": "^7.0.12",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "eslint-plugin-storybook": "^0.6.12",
     "prettier": "^2.5.1",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.12",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0",
