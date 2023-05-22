@@ -18,6 +18,8 @@ export const IconButton = forwardRef<IconButtonProps, "button">(
         borderRadius="100%"
         transition=".15s ease background"
         bgColor="transparent"
+        border="none"
+        cursor="pointer"
         _hover={{
           border: "none",
           outline: "none",

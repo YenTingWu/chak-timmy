@@ -4,12 +4,13 @@ import { useDatePickerState } from "@react-stately/datepicker";
 import { DatePickerProvider } from "./date-picker.provider";
 import { CalendarDate, parseDate } from "@internationalized/date";
 
-interface DatePickerProps {
+export interface DatePickerProps {
   isOpen?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (isOpen: boolean) => void;
   shouldCloseOnSelect?: boolean | (() => boolean);
   value?: string;
+  defaultValue?: string;
   onChange?: (iso: string) => void;
   children: React.ReactNode;
 }
@@ -46,11 +47,22 @@ function convertParamFromISOStringIntoCalendarDate(
 }
 
 function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
-  const { value: _value, onChange: _onChange, ...rest } = props;
+  const {
+    value: _value,
+    defaultValue: _defaultValue,
+    onChange: _onChange,
+    ...rest
+  } = props;
 
   const value = React.useMemo(
     () => (!!_value ? convertISOIntoCalendarDate(_value) : undefined),
     [_value],
+  );
+
+  const defaultValue = React.useMemo(
+    () =>
+      !!_defaultValue ? convertISOIntoCalendarDate(_defaultValue) : undefined,
+    [_defaultValue],
   );
 
   const onChange = React.useMemo(
@@ -64,6 +76,7 @@ function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
   return {
     onChange,
     value,
+    defaultValue,
     ...rest,
   };
 }
