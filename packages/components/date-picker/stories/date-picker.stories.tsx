@@ -20,6 +20,7 @@ import type { StoryObj } from "@storybook/react";
 
 const meta = {
   title: "Components / Single Date Picker",
+  tags: ["autodocs"],
   decorators: [
     (story: Function) => (
       <chakra.div
