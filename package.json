@@ -10,23 +10,23 @@
     "chromatic": "npx chromatic --project-token="
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.12",
-    "@storybook/addon-interactions": "^7.0.12",
-    "@storybook/addon-links": "^7.0.12",
-    "@storybook/addon-storysource": "^7.0.12",
-    "@storybook/blocks": "^7.0.12",
-    "@storybook/react": "^7.0.12",
-    "@storybook/react-vite": "^7.0.12",
-    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/addon-essentials": "^7.0.13",
+    "@storybook/addon-interactions": "^7.0.13",
+    "@storybook/addon-links": "^7.0.13",
+    "@storybook/addon-storysource": "^7.0.13",
+    "@storybook/blocks": "^7.0.13",
+    "@storybook/react": "^7.0.13",
+    "@storybook/react-vite": "^7.0.13",
+    "@storybook/testing-library": "0.0.14-next.2",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "chromatic": "^6.17.4",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
     "eslint-plugin-storybook": "^0.6.12",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.8",
     "prop-types": "^15.8.1",
-    "storybook": "^7.0.12",
+    "storybook": "^7.0.13",
     "turbo": "latest",
     "typescript": "^5.0.4"
   },
@@ -35,8 +35,5 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "version": "",
-  "readme": "ERROR: No README data found!",
-  "_id": "chak-timmy@"
+  }
 }
