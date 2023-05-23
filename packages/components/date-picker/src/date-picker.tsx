@@ -25,13 +25,7 @@ export function getISODateString(date: Date) {
 }
 
 function convertISOIntoCalendarDate(isoDate: string) {
-  let calendarDate: CalendarDate;
-
-  try {
-    calendarDate = parseDate(isoDate);
-  } catch (err) {
-    throw err;
-  }
+  const calendarDate = parseDate(isoDate);
 
   return calendarDate;
 }
@@ -55,13 +49,18 @@ function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
   } = props;
 
   const value = React.useMemo(
-    () => (!!_value ? convertISOIntoCalendarDate(_value) : undefined),
+    () =>
+      typeof _value !== "undefined"
+        ? convertISOIntoCalendarDate(_value)
+        : undefined,
     [_value],
   );
 
   const defaultValue = React.useMemo(
     () =>
-      !!_defaultValue ? convertISOIntoCalendarDate(_defaultValue) : undefined,
+      typeof _defaultValue !== "undefined"
+        ? convertISOIntoCalendarDate(_defaultValue)
+        : undefined,
     [_defaultValue],
   );
 

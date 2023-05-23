@@ -4,10 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-config-turbo": "latest",
     "eslint-plugin-react": "7.28.0",
-    "eslint-config-turbo": "latest"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4"
   },
   "peerDependencies": {
     "typescript": ">=3.3.1"

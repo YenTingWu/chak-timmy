@@ -16,7 +16,7 @@ export const DatePickerCalendarYearGridCell = ({
 
   const isSelected = React.useMemo(
     () => isEqualYear(new CalendarDate(year, 1, 1), state.visibleRange.start),
-    [state],
+    [state, year],
   );
 
   const handleCellClick = React.useCallback(() => {
@@ -26,7 +26,7 @@ export const DatePickerCalendarYearGridCell = ({
     state.setFocusedDate(newValue);
 
     setGridDisplay("day");
-  }, [state, setGridDisplay]);
+  }, [state, year, setGridDisplay]);
 
   React.useEffect(() => {
     const cell = ref.current;
