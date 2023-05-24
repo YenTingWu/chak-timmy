@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@react-aria/datepicker": "^3.4.0",
-    "@react-stately/datepicker": "^3.4.0"
+    "@react-stately/datepicker": "^3.4.0",
+    "base": "workspace:*"
   }
 }

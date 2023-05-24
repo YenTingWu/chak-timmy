@@ -1,6 +1,8 @@
 import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { DateRangePickerProvider } from "./date-range-picker.provider";
+import { DateRangePickerStartField } from "./date-range-picker-start-field";
+import { DateRangePickerEndField } from "./date-range-picker-end-field";
 import { useDateRangePicker } from "@react-aria/datepicker";
 import { useDateRangePickerState } from "@react-stately/datepicker";
 import type { DateValue } from "@react-aria/datepicker";
@@ -13,9 +15,9 @@ export const DateRangePicker = (props: DateRangPicker) => {
   const state = useDateRangePickerState(props);
   const elementProps = useDateRangePicker(props, state, ref);
 
-  const { groupProps, startFieldProps, endFieldProps } = elementProps;
+  const { groupProps } = elementProps;
 
-  const fieldRef = React.useRef(null);
+  console.log("groupProps", JSON.stringify(groupProps, null, 2));
 
   return (
     <DateRangePickerProvider
@@ -26,7 +28,8 @@ export const DateRangePicker = (props: DateRangPicker) => {
       }}
     >
       <chakra.div {...groupProps}>
-        {/* <chakra.div {...startFieldProps} ref={fieldRef}></chakra.div> */}
+        <DateRangePickerStartField border="1px solid black" />
+        <DateRangePickerEndField border="1px solid black" />
       </chakra.div>
     </DateRangePickerProvider>
   );
