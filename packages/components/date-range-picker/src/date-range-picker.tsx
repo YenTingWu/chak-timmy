@@ -4,6 +4,7 @@ import { DateRangePickerProvider } from "./date-range-picker.provider";
 import { DateRangePickerGroup } from "./date-range-picker-group";
 import { DateRangePickerStartField } from "./date-range-picker-start-field";
 import { DateRangePickerEndField } from "./date-range-picker-end-field";
+import { DateRangePickerPopover } from "./date-range-picker-popover";
 import { useDateRangePicker } from "@react-aria/datepicker";
 import { useDateRangePickerState } from "@react-stately/datepicker";
 import type { DateValue } from "@react-aria/datepicker";
@@ -29,6 +30,9 @@ export const DateRangePicker = (props: DateRangPicker) => {
         <chakra.div mx="16px">-</chakra.div>
         <DateRangePickerEndField />
       </DateRangePickerGroup>
+      <DateRangePickerPopover>
+        <chakra.div>DIalog</chakra.div>
+      </DateRangePickerPopover>
     </DateRangePickerProvider>
   );
 };
