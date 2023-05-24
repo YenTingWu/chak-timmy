@@ -224,9 +224,6 @@ importers:
       '@react-aria/i18n':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
-      '@react-aria/overlays':
-        specifier: ^3.14.0
-        version: 3.14.0(react-dom@18.2.0)(react@18.2.0)
       '@react-stately/calendar':
         specifier: ^3.2.0
         version: 3.2.0(react@18.2.0)

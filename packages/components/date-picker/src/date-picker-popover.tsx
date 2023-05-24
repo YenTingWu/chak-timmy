@@ -1,10 +1,10 @@
 import React from "react";
 import { DatePopover } from "base";
 import { useDatePickerContext } from "./date-picker.context";
-import type { AriaPopoverProps } from "@react-aria/overlays";
+import type { DatePopoverProps } from "base";
 
 interface DatePickerPopoverProps
-  extends Omit<AriaPopoverProps, "popoverRef" | "triggerRef"> {
+  extends Omit<DatePopoverProps, "state" | "triggerRef"> {
   children: React.ReactNode;
 }
 

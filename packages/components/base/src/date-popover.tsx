@@ -3,7 +3,7 @@ import { chakra } from "@chakra-ui/system";
 import { Overlay, usePopover, DismissButton } from "@react-aria/overlays";
 import type { AriaPopoverProps } from "@react-aria/overlays";
 
-interface DatePopoverProps extends Omit<AriaPopoverProps, "popoverRef"> {
+export interface DatePopoverProps extends Omit<AriaPopoverProps, "popoverRef"> {
   children: React.ReactNode;
   state: Parameters<typeof usePopover>[1];
 }
