@@ -9,16 +9,22 @@ export const DateRangePickerStartField = forwardRef<
   DateRangePickerStartFieldProps,
   "div"
 >((props, remoteRef) => {
+  const { startFieldProps, state } = useDateRangePickerContext();
+
   const {
     px = "12px",
     mr = "auto",
     display = "flex",
     alignItems = "center",
     color = "#d9d9d9",
+    borderRadius = "6px",
+    border = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
+    py = "16px",
+    w = "100%",
+    maxW = "190px",
+    _focusWithin = { outline: "2px solid #2869CA" },
     ...rest
   } = props;
-
-  const { startFieldProps } = useDateRangePickerContext();
 
   return (
     <DateField
@@ -28,6 +34,13 @@ export const DateRangePickerStartField = forwardRef<
       display={display}
       alignItems={alignItems}
       color={color}
+      borderRadius={borderRadius}
+      border={border}
+      py={py}
+      w={w}
+      maxW={maxW}
+      _focusWithin={_focusWithin}
+      onClick={state.toggle}
       {...rest}
       ref={remoteRef}
     />
