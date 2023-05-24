@@ -1,8 +1,7 @@
 import React from "react";
-import { chakra, forwardRef } from "@chakra-ui/system";
-import { useDialog } from "@react-aria/dialog";
+import { forwardRef } from "@chakra-ui/system";
+import { DateDialog } from "base";
 import { useDatePickerContext } from "./date-picker.context";
-import { useMergeRefs } from "hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 interface DatePickerDialogProps extends HTMLChakraProps<"div"> {
@@ -17,27 +16,20 @@ export const DatePickerDialog = forwardRef<DatePickerDialogProps, "div">(
       minW = "312px",
       ...rest
     } = props;
-    const localRef = React.useRef<HTMLDivElement>(null);
-
-    const ref = useMergeRefs(remoteRef, localRef);
 
     const { dialogProps: dialogPropsFromDatePickerContext } =
       useDatePickerContext();
-    const { dialogProps } = useDialog(
-      dialogPropsFromDatePickerContext,
-      localRef,
-    );
 
     return (
-      <chakra.div
+      <DateDialog
         outlineColor={outlineColor}
         minW={minW}
-        ref={ref}
-        {...dialogProps}
+        ref={remoteRef}
+        dialogProps={dialogPropsFromDatePickerContext}
         {...rest}
       >
         {children}
-      </chakra.div>
+      </DateDialog>
     );
   },
 );
