@@ -227,6 +227,9 @@ importers:
       '@react-stately/datepicker':
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
+      base:
+        specifier: workspace:*
+        version: link:../base
       hooks:
         specifier: workspace:*
         version: link:../../hooks

@@ -33,6 +33,7 @@
     "@react-aria/overlays": "^3.14.0",
     "@react-stately/calendar": "^3.2.0",
     "@react-stately/datepicker": "^3.4.0",
-    "hooks": "workspace:*"
+    "hooks": "workspace:*",
+    "base": "workspace:*"
   }
 }

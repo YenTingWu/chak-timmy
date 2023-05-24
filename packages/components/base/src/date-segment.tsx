@@ -1,7 +1,10 @@
 import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { useDateSegment } from "@react-aria/datepicker";
-import type { DateFieldState, DateSegment } from "@react-stately/datepicker";
+import type {
+  DateFieldState,
+  DateSegment as DateSegmentType,
+} from "@react-stately/datepicker";
 
 const formatDigit = (digits: string, numberOfDigits: number) => {
   if (isNaN(+digits)) {
@@ -21,15 +24,12 @@ const formatDigit = (digits: string, numberOfDigits: number) => {
   return newDigits;
 };
 
-interface DatePickerSegmentProps {
+interface DateSegmentProps {
   state: DateFieldState;
-  segment: DateSegment;
+  segment: DateSegmentType;
 }
 
-export const DatePickerSegment = ({
-  segment,
-  state,
-}: DatePickerSegmentProps) => {
+export const DateSegment = ({ segment, state }: DateSegmentProps) => {
   const { type } = segment;
   const ref = React.useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);

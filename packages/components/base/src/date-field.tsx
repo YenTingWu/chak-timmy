@@ -5,12 +5,12 @@ import { useDateFieldState } from "@react-stately/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
 import { useMergeRefs } from "hooks";
+import { DateSegment } from "./date-segment";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 import type { AriaDateFieldOptions, DateValue } from "@react-aria/datepicker";
 
 interface DateFieldProps extends HTMLChakraProps<"div"> {
   fieldProps: AriaDateFieldOptions<DateValue>;
-  children: React.ReactNode;
 }
 
 export const DateField = forwardRef<DateFieldProps, "div">(
@@ -35,7 +35,9 @@ export const DateField = forwardRef<DateFieldProps, "div">(
 
     return (
       <chakra.div ref={ref} {...fieldProps} {...rest}>
-        {children}
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
       </chakra.div>
     );
   },
