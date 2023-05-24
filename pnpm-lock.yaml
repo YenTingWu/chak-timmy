@@ -276,6 +276,9 @@ importers:
       base:
         specifier: workspace:*
         version: link:../base
+      hooks:
+        specifier: workspace:*
+        version: link:../../hooks
     devDependencies:
       '@chakra-ui/system':
         specifier: '>=2'
