@@ -19,5 +19,8 @@
     "@chakra-ui/system": ">=2",
     "react": ">=18"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@react-aria/datepicker": "^3.4.0",
+    "@react-stately/datepicker": "^3.4.0"
+  }
 }
