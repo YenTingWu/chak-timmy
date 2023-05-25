@@ -6,7 +6,11 @@ import { DateRangePickerStartField } from "./date-range-picker-start-field";
 import { DateRangePickerEndField } from "./date-range-picker-end-field";
 import { DateRangePickerPopover } from "./date-range-picker-popover";
 import { DateRangePickerDialog } from "./date-range-picker-dialog";
-import { DateRangePickerCalendar } from "./date-range-picker-calendar";
+import {
+  DateRangePickerCalendar,
+  DateRangePickerCalendarContent,
+  DateRangePickerCalendarDateGrid,
+} from "./date-range-picker-calendar";
 import { useDateRangePicker } from "@react-aria/datepicker";
 import { useDateRangePickerState } from "@react-stately/datepicker";
 import type { DateValue } from "@react-aria/datepicker";
@@ -34,7 +38,11 @@ export const DateRangePicker = (props: DateRangPicker) => {
       </DateRangePickerGroup>
       <DateRangePickerPopover>
         <DateRangePickerDialog>
-          <DateRangePickerCalendar>DIalog</DateRangePickerCalendar>
+          <DateRangePickerCalendar>
+            <DateRangePickerCalendarContent>
+              <DateRangePickerCalendarDateGrid />
+            </DateRangePickerCalendarContent>
+          </DateRangePickerCalendar>
         </DateRangePickerDialog>
       </DateRangePickerPopover>
     </DateRangePickerProvider>
