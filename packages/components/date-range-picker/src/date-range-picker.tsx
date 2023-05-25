@@ -9,7 +9,7 @@ import { DateRangePickerDialog } from "./date-range-picker-dialog";
 import {
   DateRangePickerCalendar,
   DateRangePickerCalendarContent,
-  DateRangePickerCalendarDateGrid,
+  DateRangePickerCalendarGrid,
   DateRangePickerCalendarHeader,
   DateRangePickerCalendarTitle,
   DateRangePickerCalendarNextButton,
@@ -51,7 +51,7 @@ export const DateRangePicker = (props: DateRangPicker) => {
                   <DateRangePickerCalendarNextButton />
                 </chakra.div>
               </DateRangePickerCalendarHeader>
-              <DateRangePickerCalendarDateGrid />
+              <DateRangePickerCalendarGrid />
             </DateRangePickerCalendarContent>
           </DateRangePickerCalendar>
         </DateRangePickerDialog>

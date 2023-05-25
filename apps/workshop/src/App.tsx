@@ -5,8 +5,8 @@ import { DateRangePickerExample } from "./date-range-picker-example";
 function App() {
   return (
     <div>
-      <DatePickerExample />
       <DateRangePickerExample />
+      <DatePickerExample />
     </div>
   );
 }
