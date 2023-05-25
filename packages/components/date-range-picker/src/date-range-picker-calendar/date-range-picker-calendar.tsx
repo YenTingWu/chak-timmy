@@ -41,6 +41,7 @@ export const DateRangePickerCalendar = ({
         state,
         gridDisplay,
         setGridDisplay,
+        ref,
       }}
     >
       {children}

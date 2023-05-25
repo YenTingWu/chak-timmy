@@ -4,6 +4,7 @@ import type { RangeCalendarState } from "@react-stately/calendar";
 import type { GridDisplay } from "@chak-timmy/types";
 
 export interface DateRangePickerContextProps extends CalendarAria {
+  ref: React.RefObject<HTMLDivElement>;
   state: RangeCalendarState;
   gridDisplay: GridDisplay;
   setGridDisplay: React.Dispatch<React.SetStateAction<GridDisplay>>;
