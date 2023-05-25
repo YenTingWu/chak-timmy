@@ -4,17 +4,17 @@ import { useCalendarCell } from "@react-aria/calendar";
 import { CalendarDate } from "@internationalized/date";
 import type { CalendarState } from "@react-stately/calendar";
 
-interface DatePickerCalendarDateGridCellProps {
+interface PickerCalendarDateGridCellProps {
   date: CalendarDate;
   state: CalendarState;
   isToday: boolean;
 }
 
-export const DatePickerCalendarDateGridCell = ({
+export const PickerCalendarDateGridCell = ({
   date,
   state,
   isToday,
-}: DatePickerCalendarDateGridCellProps) => {
+}: PickerCalendarDateGridCellProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   const { cellProps, buttonProps, isSelected, isDisabled } = useCalendarCell(

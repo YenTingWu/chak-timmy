@@ -157,6 +157,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.2.0
         version: 3.2.0
+      '@react-aria/calendar':
+        specifier: ^3.2.0
+        version: 3.2.0(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/datepicker':
         specifier: ^3.4.0
         version: 3.4.0(react-dom@18.2.0)(react@18.2.0)
@@ -169,6 +172,9 @@ importers:
       '@react-aria/overlays':
         specifier: ^3.14.0
         version: 3.14.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-stately/calendar':
+        specifier: ^3.2.0
+        version: 3.2.0(react@18.2.0)
       '@react-stately/datepicker':
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
