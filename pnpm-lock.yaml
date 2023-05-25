@@ -276,9 +276,15 @@ importers:
 
   packages/components/date-range-picker:
     dependencies:
+      '@chakra-ui/icons':
+        specifier: ^2.0.19
+        version: 2.0.19(@chakra-ui/system@2.5.7)(react@18.2.0)
       '@internationalized/date':
         specifier: ^3.2.0
         version: 3.2.0
+      '@react-aria/button':
+        specifier: ^3.7.1
+        version: 3.7.1(react@18.2.0)
       '@react-aria/calendar':
         specifier: ^3.2.0
         version: 3.2.0(react-dom@18.2.0)(react@18.2.0)

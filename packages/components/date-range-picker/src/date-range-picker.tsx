@@ -10,6 +10,10 @@ import {
   DateRangePickerCalendar,
   DateRangePickerCalendarContent,
   DateRangePickerCalendarDateGrid,
+  DateRangePickerCalendarHeader,
+  DateRangePickerCalendarTitle,
+  DateRangePickerCalendarNextButton,
+  DateRangePickerCalendarPrevButton,
 } from "./date-range-picker-calendar";
 import { useDateRangePicker } from "@react-aria/datepicker";
 import { useDateRangePickerState } from "@react-stately/datepicker";
@@ -40,6 +44,13 @@ export const DateRangePicker = (props: DateRangPicker) => {
         <DateRangePickerDialog>
           <DateRangePickerCalendar>
             <DateRangePickerCalendarContent>
+              <DateRangePickerCalendarHeader>
+                <DateRangePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DateRangePickerCalendarPrevButton />
+                  <DateRangePickerCalendarNextButton />
+                </chakra.div>
+              </DateRangePickerCalendarHeader>
               <DateRangePickerCalendarDateGrid />
             </DateRangePickerCalendarContent>
           </DateRangePickerCalendar>
