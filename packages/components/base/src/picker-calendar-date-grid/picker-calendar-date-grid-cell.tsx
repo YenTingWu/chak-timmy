@@ -2,11 +2,14 @@ import React from "react";
 import { chakra } from "@chakra-ui/system";
 import { useCalendarCell } from "@react-aria/calendar";
 import { CalendarDate } from "@internationalized/date";
-import type { CalendarState } from "@react-stately/calendar";
+import type {
+  CalendarState,
+  RangeCalendarState,
+} from "@react-stately/calendar";
 
 interface PickerCalendarDateGridCellProps {
   date: CalendarDate;
-  state: CalendarState;
+  state: CalendarState | RangeCalendarState;
   isToday: boolean;
 }
 

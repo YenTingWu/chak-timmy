@@ -10,12 +10,15 @@ import {
   endOfMonth,
 } from "@internationalized/date";
 import { PickerCalendarDateGridCell } from "./picker-calendar-date-grid-cell";
-import type { CalendarState } from "@react-stately/calendar";
+import type {
+  CalendarState,
+  RangeCalendarState,
+} from "@react-stately/calendar";
 
 const today = createToday(getLocalTimeZone());
 
 interface PickerCalendarDateGridProps {
-  state: CalendarState;
+  state: CalendarState | RangeCalendarState;
 }
 
 export const PickerCalendarDateGrid = ({
