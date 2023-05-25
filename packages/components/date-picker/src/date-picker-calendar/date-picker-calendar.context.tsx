@@ -1,7 +1,7 @@
 import React from "react";
 import type { CalendarAria } from "@react-aria/calendar";
 import type { CalendarState } from "@react-stately/calendar";
-import type { GridDisplay } from "./date-picker-calendar-types";
+import type { GridDisplay } from "@chak-timmy/types";
 
 export interface DatePickerContextProps extends CalendarAria {
   state: CalendarState;

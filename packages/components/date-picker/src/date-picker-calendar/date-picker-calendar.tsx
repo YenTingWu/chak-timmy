@@ -5,7 +5,7 @@ import { useCalendarState } from "@react-stately/calendar";
 import { createCalendar } from "@internationalized/date";
 import { DatePickerCalendarProvider } from "./date-picker-calendar.provider";
 import { useDatePickerContext } from "../date-picker.context";
-import type { GridDisplay } from "./date-picker-calendar-types";
+import type { GridDisplay } from "@chak-timmy/types";
 
 interface DatePickerCalendarProps {
   children: React.ReactNode;

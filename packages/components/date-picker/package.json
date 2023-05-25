@@ -16,6 +16,7 @@
     "eslint-config-custom": "workspace:*",
     "react": ">=18",
     "tsconfig": "workspace:*",
+    "@chak-timmy/types": "workspace:*",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {
