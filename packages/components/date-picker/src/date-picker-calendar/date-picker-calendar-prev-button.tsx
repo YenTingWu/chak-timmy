@@ -1,7 +1,7 @@
 import React from "react";
 import { forwardRef } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
-import { IconButton } from "../icon-button";
+import { IconButton } from "base";
 import { useButton } from "@react-aria/button";
 import { useDatePickerCalendarContext } from "./date-picker-calendar.context";
 import { useMergeRefs } from "hooks";
