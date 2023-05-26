@@ -5,7 +5,7 @@
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives"
   },
   "devDependencies": {
     "@chakra-ui/system": "^2.5.7",

@@ -7,7 +7,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token="
+    "chromatic": "npx chromatic --project-token=",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.13",
@@ -24,6 +25,8 @@
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
     "eslint-plugin-storybook": "^0.6.12",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.13",

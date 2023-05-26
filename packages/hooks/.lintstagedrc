@@ -1,0 +1,6 @@
+{
+  "**/*.{ts,tsx,js,jsx}": [
+    "prettier --write --list-different",
+    "eslint src --ext ts,tsx --report-unused-disable-directives"
+  ]
+}
