@@ -12,7 +12,7 @@ export const useRangeCalendarCell = (
   ref: React.RefObject<HTMLElement>,
 ): CalendarCellAria => {
   const elementProps = useCalendarCell(props, state, ref);
-  const { highlightedRange, setAnchorDate, highlightDate } = state;
+  const { anchorDate, setAnchorDate, highlightDate } = state;
 
   const { buttonProps, ...rest } = elementProps;
   const { onPointerEnter, onPointerUp, ...restButtonProps } = buttonProps;
@@ -25,9 +25,9 @@ export const useRangeCalendarCell = (
         const date = props.date;
         if (date == null) return;
 
-        const start = highlightedRange?.start;
-
-        if (start != null && start.compare(date) > 0) {
+        // Use anchorDate instead of highlightedRange.start
+        // highlightedRange.start will change when the user changes the month pages
+        if (anchorDate != null && anchorDate.compare(date) > 0) {
           return;
         }
 
@@ -37,9 +37,9 @@ export const useRangeCalendarCell = (
         const date = props.date;
         if (date == null) return;
 
-        const start = highlightedRange?.start;
-
-        if (start != null && start.compare(date) > 0) {
+        // Use anchorDate instead of highlightedRange.start
+        // highlightedRange.start will change when the user changes the month pages
+        if (anchorDate != null && anchorDate.compare(date) > 0) {
           setAnchorDate(date);
           highlightDate(date);
           return;
