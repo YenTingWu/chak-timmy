@@ -17,7 +17,7 @@ export const DateRangePickerCalendarDateGridCell = ({
   isToday,
   isLastInWeek,
 }: DateRangePickerCalendarDateGridCellProps) => {
-  const { highlightedRange } = state;
+  const { highlightedRange, anchorDate } = state;
   const ref = React.useRef<HTMLDivElement>(null);
 
   const { cellProps, buttonProps, isSelected, isDisabled } =
@@ -27,12 +27,11 @@ export const DateRangePickerCalendarDateGridCell = ({
     () =>
       getHighlightedStyles({
         highlightedRange,
+        anchorDate,
         date,
       }),
     [highlightedRange, date],
   );
-
-  console.log("isSelected", isSelected);
 
   return (
     <>
@@ -95,9 +94,11 @@ export const DateRangePickerCalendarDateGridCell = ({
 
 function getHighlightedStyles({
   highlightedRange,
+  anchorDate,
   date,
 }: {
   highlightedRange: RangeCalendarState["highlightedRange"];
+  anchorDate: CalendarDate | null;
   date: CalendarDate;
 }) {
   const { isStartDate, isEndDate } = getHighlightedCondition({
@@ -105,9 +106,21 @@ function getHighlightedStyles({
     date,
   });
 
+  const isBeforeAnchorDate =
+    anchorDate == null ? false : date.compare(anchorDate) < 0;
+
   let cellStyles;
   let buttonStyles;
   let spaceStyles;
+
+  // Any date before the anchor date should be no styles
+  if (isBeforeAnchorDate) {
+    return {
+      buttonStyles,
+      cellStyles,
+      spaceStyles,
+    };
+  }
 
   if (isStartDate && isEndDate) {
     buttonStyles = {
