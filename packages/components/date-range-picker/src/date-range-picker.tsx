@@ -1,28 +1,15 @@
 import React from "react";
-import { chakra } from "@chakra-ui/system";
 import { DateRangePickerProvider } from "./date-range-picker.provider";
-import { DateRangePickerGroup } from "./date-range-picker-group";
-import { DateRangePickerStartField } from "./date-range-picker-start-field";
-import { DateRangePickerEndField } from "./date-range-picker-end-field";
-import { DateRangePickerPopover } from "./date-range-picker-popover";
-import { DateRangePickerDialog } from "./date-range-picker-dialog";
-import {
-  DateRangePickerCalendar,
-  DateRangePickerCalendarContent,
-  DateRangePickerCalendarGrid,
-  DateRangePickerCalendarHeader,
-  DateRangePickerCalendarTitle,
-  DateRangePickerCalendarNextButton,
-  DateRangePickerCalendarPrevButton,
-} from "./date-range-picker-calendar";
 import { useDateRangePicker } from "@react-aria/datepicker";
 import { useDateRangePickerState } from "@react-stately/datepicker";
 import type { DateValue } from "@react-aria/datepicker";
 import type { DateRangePickerStateOptions } from "@react-stately/datepicker";
 
-interface DateRangPicker extends DateRangePickerStateOptions<DateValue> {}
+interface DateRangPicker extends DateRangePickerStateOptions<DateValue> {
+  children: React.ReactNode;
+}
 
-export const DateRangePicker = (props: DateRangPicker) => {
+export const DateRangePicker = ({ children, ...props }: DateRangPicker) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const state = useDateRangePickerState(props);
   const elementProps = useDateRangePicker(props, state, ref);
@@ -35,27 +22,7 @@ export const DateRangePicker = (props: DateRangPicker) => {
         ...elementProps,
       }}
     >
-      <DateRangePickerGroup mt="36px">
-        <DateRangePickerStartField />
-        <chakra.div mx="16px">-</chakra.div>
-        <DateRangePickerEndField />
-      </DateRangePickerGroup>
-      <DateRangePickerPopover>
-        <DateRangePickerDialog>
-          <DateRangePickerCalendar>
-            <DateRangePickerCalendarContent>
-              <DateRangePickerCalendarHeader>
-                <DateRangePickerCalendarTitle />
-                <chakra.div display="flex" alignItems="center">
-                  <DateRangePickerCalendarPrevButton />
-                  <DateRangePickerCalendarNextButton />
-                </chakra.div>
-              </DateRangePickerCalendarHeader>
-              <DateRangePickerCalendarGrid />
-            </DateRangePickerCalendarContent>
-          </DateRangePickerCalendar>
-        </DateRangePickerDialog>
-      </DateRangePickerPopover>
+      {children}
     </DateRangePickerProvider>
   );
 };
