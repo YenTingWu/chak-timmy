@@ -1,7 +1,7 @@
 import React from "react";
 import { chakra } from "@chakra-ui/system";
-import { useCalendarCell } from "@react-aria/calendar";
 import { CalendarDate } from "@internationalized/date";
+import { useRangeCalendarCell } from "./use-range-calendar-cell";
 import type { RangeCalendarState } from "@react-stately/calendar";
 
 interface DateRangePickerCalendarDateGridCellProps {
@@ -20,11 +20,8 @@ export const DateRangePickerCalendarDateGridCell = ({
   const { highlightedRange } = state;
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const { cellProps, buttonProps, isSelected, isDisabled } = useCalendarCell(
-    { date },
-    state,
-    ref,
-  );
+  const { cellProps, buttonProps, isSelected, isDisabled } =
+    useRangeCalendarCell({ date }, state, ref);
 
   const { cellStyles, buttonStyles, spaceStyles } = React.useMemo(
     () =>
@@ -34,6 +31,8 @@ export const DateRangePickerCalendarDateGridCell = ({
       }),
     [highlightedRange, date],
   );
+
+  console.log("isSelected", isSelected);
 
   return (
     <>
