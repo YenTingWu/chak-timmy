@@ -72,14 +72,12 @@ export const DateRangePickerCalendarDateGridCell = ({
             outline: "none",
           }}
           _disabled={{
-            bgColor: "white",
-            color: "#D9D9D9",
-            border: isToday ? "1px solid #D9D9D9" : "none",
-            cursor: "default",
+            visibility: "hidden",
           }}
           aria-selected={isSelected}
           _selected={{ ...buttonStyles }}
           disabled={isDisabled}
+          aria-hidden={isDisabled}
         >
           {date.day}
         </chakra.div>

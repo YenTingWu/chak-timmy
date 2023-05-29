@@ -13,6 +13,7 @@ import { DateRangePickerCalendarDateGridCell } from "./date-range-picker-calenda
 import { useDateRangePickerCalendarContext } from "../date-range-picker-calendar.context";
 
 const today = createToday(getLocalTimeZone());
+
 export const DateRangePickerCalendarDateGrid = () => {
   const { state } = useDateRangePickerCalendarContext();
 
