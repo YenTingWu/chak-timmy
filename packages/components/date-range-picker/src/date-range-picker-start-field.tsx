@@ -21,7 +21,8 @@ export const DateRangePickerStartField = forwardRef<
     border = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
     py = "16px",
     w = "100%",
-    maxW = "190px",
+    minW = "232px",
+    maxW = "320px",
     _focusWithin = { outline: "2px solid #2869CA" },
     ...rest
   } = props;
@@ -38,9 +39,10 @@ export const DateRangePickerStartField = forwardRef<
       border={border}
       py={py}
       w={w}
+      minW={minW}
       maxW={maxW}
       _focusWithin={_focusWithin}
-      onClick={state.toggle}
+      onPointerDown={state.open}
       {...rest}
       ref={remoteRef}
     />

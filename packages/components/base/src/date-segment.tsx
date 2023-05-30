@@ -36,7 +36,6 @@ export const DateSegment = ({ segment, state }: DateSegmentProps) => {
 
   return (
     <chakra.div
-      flex={type === "literal" ? "0" : "1"}
       mx={type === "literal" ? "0" : "4px"}
       ref={ref}
       {...segmentProps}
