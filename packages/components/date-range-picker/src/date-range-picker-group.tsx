@@ -23,6 +23,7 @@ export const DateRangePickerGroup = forwardRef<
       alignItems={alignItems}
       {...rest}
       ref={ref}
+      onPointerDown={(e) => e.preventDefault()}
     >
       {children}
     </chakra.div>
