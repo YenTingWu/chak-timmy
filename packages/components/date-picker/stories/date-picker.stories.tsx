@@ -13,15 +13,15 @@ import {
   DatePickerCalendarHeader,
   DatePickerCalendarTitle,
   DatePickerCalendarPrevButton,
-  getISODateString,
 } from "../src";
+import { getISODateString } from "@chak-timmy/utils";
 import { chakra } from "@chakra-ui/system";
-import type { StoryObj } from "@storybook/react";
 
 const meta = {
   title: "Components / Single Date Picker",
   tags: ["autodocs"],
   decorators: [
+    // eslint-disable-next-line
     (story: Function) => (
       <chakra.div
         mx="auto"
