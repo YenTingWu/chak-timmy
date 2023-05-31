@@ -25,6 +25,7 @@ const meta = {
     (story: Function) => (
       <chakra.div
         mx="auto"
+        mt="200px"
         maxW="400px"
         display="flex"
         flexDir="column"
