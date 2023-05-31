@@ -14,8 +14,8 @@ import {
   DatePickerCalendarHeader,
   DatePickerCalendarTitle,
   DatePickerCalendarPrevButton,
-  getISODateString,
 } from "date-picker";
+import { getISODateString } from "@chak-timmy/utils";
 
 export const DatePickerExample = () => {
   const [ISOString, setISOString] = React.useState(
