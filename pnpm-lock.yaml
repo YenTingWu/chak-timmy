@@ -227,9 +227,6 @@ importers:
 
   packages/components/date-picker:
     dependencies:
-      '@chak-timmy/utils':
-        specifier: workspace:*
-        version: link:../../utils
       '@chakra-ui/icons':
         specifier: ^2.0.19
         version: 2.0.19(@chakra-ui/system@2.5.7)(react@18.2.0)
@@ -264,6 +261,9 @@ importers:
       '@chak-timmy/types':
         specifier: workspace:*
         version: link:../../types
+      '@chak-timmy/utils':
+        specifier: workspace:*
+        version: link:../../utils
       '@chakra-ui/system':
         specifier: ^2.5.7
         version: 2.5.7(@emotion/react@11.11.0)(@emotion/styled@11.11.0)(react@18.2.0)
@@ -328,6 +328,9 @@ importers:
       '@chak-timmy/types':
         specifier: workspace:*
         version: link:../../types
+      '@chak-timmy/utils':
+        specifier: workspace:*
+        version: link:../../utils
       '@chakra-ui/system':
         specifier: '>=2'
         version: 2.5.7(@emotion/react@11.11.0)(@emotion/styled@11.11.0)(react@18.2.0)

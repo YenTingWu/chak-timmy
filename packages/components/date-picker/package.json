@@ -17,6 +17,7 @@
     "react": ">=18",
     "tsconfig": "workspace:*",
     "@chak-timmy/types": "workspace:*",
+    "@chak-timmy/utils": "workspace:*",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {
@@ -32,7 +33,6 @@
     "@react-aria/i18n": "^3.7.1",
     "@react-stately/calendar": "^3.2.0",
     "@react-stately/datepicker": "^3.4.0",
-    "@chak-timmy/utils": "workspace:*",
     "hooks": "workspace:*",
     "base": "workspace:*"
   }
