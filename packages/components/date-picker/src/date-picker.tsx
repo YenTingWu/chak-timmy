@@ -15,62 +15,6 @@ export interface DatePickerProps {
   children: React.ReactNode;
 }
 
-function convertISOIntoCalendarDate(isoDate: string) {
-  const calendarDate = parseDate(isoDate);
-
-  return calendarDate;
-}
-
-function convertParamFromISOStringIntoCalendarDate(
-  func: (iso: string) => void,
-) {
-  return (calendarDate: CalendarDate) => {
-    const date = calendarDate.toString();
-
-    func(date);
-  };
-}
-
-function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
-  const {
-    value: _value,
-    defaultValue: _defaultValue,
-    onChange: _onChange,
-    ...rest
-  } = props;
-
-  const value = React.useMemo(
-    () =>
-      typeof _value !== "undefined"
-        ? convertISOIntoCalendarDate(_value)
-        : undefined,
-    [_value],
-  );
-
-  const defaultValue = React.useMemo(
-    () =>
-      typeof _defaultValue !== "undefined"
-        ? convertISOIntoCalendarDate(_defaultValue)
-        : undefined,
-    [_defaultValue],
-  );
-
-  const onChange = React.useMemo(
-    () =>
-      _onChange
-        ? convertParamFromISOStringIntoCalendarDate(_onChange)
-        : undefined,
-    [_onChange],
-  );
-
-  return {
-    onChange,
-    value,
-    defaultValue,
-    ...rest,
-  };
-}
-
 export const DatePicker = ({ children, ...props }: DatePickerProps) => {
   const newProps = useDatePickerProps(props);
 
@@ -86,3 +30,45 @@ export const DatePicker = ({ children, ...props }: DatePickerProps) => {
     </DatePickerProvider>
   );
 };
+
+function useDatePickerProps(props: Omit<DatePickerProps, "children"> = {}) {
+  const {
+    value: _value,
+    defaultValue: _defaultValue,
+    onChange: _onChange,
+    ...rest
+  } = props;
+
+  const value = React.useMemo(
+    () => (typeof _value !== "undefined" ? parseDate(_value) : undefined),
+    [_value],
+  );
+
+  const defaultValue = React.useMemo(
+    () =>
+      typeof _defaultValue !== "undefined"
+        ? parseDate(_defaultValue)
+        : undefined,
+    [_defaultValue],
+  );
+
+  const onChange = React.useMemo(
+    () => (_onChange ? convertOnChangeCallBack(_onChange) : undefined),
+    [_onChange],
+  );
+
+  return {
+    onChange,
+    value,
+    defaultValue,
+    ...rest,
+  };
+}
+
+function convertOnChangeCallBack(func: (iso: string) => void) {
+  return (calendarDate: CalendarDate) => {
+    const date = calendarDate.toString();
+
+    func(date);
+  };
+}
