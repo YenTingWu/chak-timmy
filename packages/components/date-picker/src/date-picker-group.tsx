@@ -15,11 +15,14 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
     const {
       children,
       borderRadius = "6px",
-      border = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
+      outline = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
       py = "8px",
       w = "100%",
       maxW = "240px",
       display = "flex",
+      _hover = {
+        outline: "2px solid #828282",
+      },
       _focusWithin = { outline: "2px solid #2869CA" },
       ...rest
     } = props;
@@ -28,13 +31,14 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
       <chakra.div
         ref={ref}
         borderRadius={borderRadius}
-        border={border}
+        outline={outline}
         py={py}
         w={w}
         maxW={maxW}
         display={display}
         {...groupProps}
         _focusWithin={_focusWithin}
+        _hover={_hover}
         {...rest}
       >
         {children}
