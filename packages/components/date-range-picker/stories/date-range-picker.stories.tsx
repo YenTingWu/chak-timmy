@@ -49,7 +49,7 @@ export function Controlled() {
 
   return (
     <>
-      <chakra.h1>Date Now</chakra.h1>
+      <chakra.h1>Date Range</chakra.h1>
       <chakra.h3>{`${value.start} --> ${value.end}`}</chakra.h3>
       <DateRangePicker
         value={value}
