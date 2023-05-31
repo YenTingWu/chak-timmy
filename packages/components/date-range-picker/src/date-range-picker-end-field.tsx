@@ -18,12 +18,18 @@ export const DateRangePickerEndField = forwardRef<
     alignItems = "center",
     color = "#d9d9d9",
     borderRadius = "6px",
-    border = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
+    outline = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
     py = "16px",
     w = "100%",
     maxW = "320px",
     minW = "232px",
     _focusWithin = { outline: "2px solid #2869CA" },
+    _invalid = {
+      outline: "2px solid red",
+    },
+    _hover = {
+      outline: "2px solid #828282",
+    },
     ...rest
   } = props;
 
@@ -36,11 +42,13 @@ export const DateRangePickerEndField = forwardRef<
       alignItems={alignItems}
       color={color}
       borderRadius={borderRadius}
-      border={border}
+      outline={outline}
       py={py}
       w={w}
       minW={minW}
       maxW={maxW}
+      _invalid={_invalid}
+      _hover={_hover}
       _focusWithin={_focusWithin}
       onPointerDown={state.open}
       {...rest}

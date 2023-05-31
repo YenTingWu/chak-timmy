@@ -29,12 +29,13 @@ export const DateField = forwardRef<DateFieldProps, "div">(
     });
     const { fieldProps } = useDateField(_fieldProps, state, localeRef);
 
-    if (state.validationState === "invalid") {
-      return null;
-    }
-
     return (
-      <chakra.div ref={ref} {...fieldProps} {...rest}>
+      <chakra.div
+        ref={ref}
+        {...fieldProps}
+        aria-invalid={state.validationState === "invalid"}
+        {...rest}
+      >
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
