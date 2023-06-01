@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@chakra-ui/icons";
-import { IconButton } from "base";
+import { IconButton } from "@chak-timmy/base";
 import { useButton } from "@react-aria/button";
 import { useDatePickerContext } from "./date-picker.context";
 

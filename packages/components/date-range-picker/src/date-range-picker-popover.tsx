@@ -1,7 +1,7 @@
 import React from "react";
-import { DatePopover } from "base";
+import { DatePopover } from "@chak-timmy/base";
 import { useDateRangePickerContext } from "./date-range-picker.context";
-import type { DatePopoverProps } from "base";
+import type { DatePopoverProps } from "@chak-timmy/base";
 
 interface DateRangePickerPopoverProps
   extends Omit<DatePopoverProps, "state" | "triggerRef"> {

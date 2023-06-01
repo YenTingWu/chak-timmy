@@ -1,6 +1,6 @@
 import React from "react";
 import { forwardRef } from "@chakra-ui/system";
-import { DateDialog } from "base";
+import { DateDialog } from "@chak-timmy/base";
 import { useDateRangePickerContext } from "./date-range-picker.context";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 

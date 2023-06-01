@@ -1,6 +1,6 @@
 import { forwardRef } from "@chakra-ui/system";
 import { useDatePickerContext } from "./date-picker.context";
-import { DateField } from "base";
+import { DateField } from "@chak-timmy/base";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 interface DatePickerFieldProps extends HTMLChakraProps<"div"> {}

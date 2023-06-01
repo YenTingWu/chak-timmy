@@ -1,6 +1,6 @@
 import { chakra, forwardRef } from "@chakra-ui/system";
 import { Icon } from "@chakra-ui/icons";
-import { IconButton } from "base";
+import { IconButton } from "@chak-timmy/base";
 import { useDateRangePickerCalendarContext } from "./date-range-picker-calendar.context";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
