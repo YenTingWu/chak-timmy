@@ -32,6 +32,7 @@ export const DateRangePickerExample = () => {
       <DateRangePicker
         value={value}
         isOpen={isOpen}
+        label="date range picker"
         onOpenChange={setIsOpen}
         onChange={(newValue: { start: string; end: string }) =>
           setValue(newValue)

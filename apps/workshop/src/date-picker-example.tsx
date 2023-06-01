@@ -32,6 +32,7 @@ export const DatePickerExample = () => {
         value={ISOString}
         isOpen={isOpen}
         onOpenChange={setIsOpen}
+        label="date picker"
         onChange={(iso: string) => setISOString(iso)}
       >
         <DatePickerGroup>
