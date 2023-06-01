@@ -24,7 +24,7 @@ export const DateRangePickerStartField = forwardRef<
     minW = "232px",
     maxW = "320px",
     _invalid = {
-      outline: "2px solid red",
+      outline: "2px solid #B3261E",
     },
     _hover = {
       outline: "2px solid #828282",

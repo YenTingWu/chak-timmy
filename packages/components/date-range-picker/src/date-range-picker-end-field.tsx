@@ -25,7 +25,7 @@ export const DateRangePickerEndField = forwardRef<
     minW = "232px",
     _focusWithin = { outline: "2px solid #2869CA" },
     _invalid = {
-      outline: "2px solid red",
+      outline: "2px solid #B3261E",
     },
     _hover = {
       outline: "2px solid #828282",

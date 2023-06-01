@@ -23,6 +23,9 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
       _hover = {
         outline: "2px solid #828282",
       },
+      _invalid = {
+        outline: "2px solid #B3261E",
+      },
       _focusWithin = { outline: "2px solid #2869CA" },
       ...rest
     } = props;
@@ -36,9 +39,11 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
         w={w}
         maxW={maxW}
         display={display}
+        aria-invalid={state.validationState === "invalid"}
         {...groupProps}
         _focusWithin={_focusWithin}
         _hover={_hover}
+        _invalid={_invalid}
         {...rest}
       >
         {children}
