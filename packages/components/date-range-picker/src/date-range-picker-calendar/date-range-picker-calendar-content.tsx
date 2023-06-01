@@ -1,6 +1,6 @@
 import { chakra, forwardRef } from "@chakra-ui/system";
 import { useDateRangePickerCalendarContext } from "./date-range-picker-calendar.context";
-import { useMergeRefs } from "hooks";
+import { useMergeRefs } from "@chak-timmy/hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 
 interface DateRangePickerCalendarContentProps extends HTMLChakraProps<"div"> {

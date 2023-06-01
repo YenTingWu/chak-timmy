@@ -14,7 +14,7 @@ import {
   DatePickerCalendarHeader,
   DatePickerCalendarTitle,
   DatePickerCalendarPrevButton,
-} from "date-picker";
+} from "@chak-timmy/date-picker";
 import { getISODateString } from "@chak-timmy/utils";
 
 export const DatePickerExample = () => {

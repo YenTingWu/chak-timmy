@@ -1,5 +1,5 @@
 import { chakra, forwardRef } from "@chakra-ui/system";
-import { useMergeRefs } from "hooks";
+import { useMergeRefs } from "@chak-timmy/hooks";
 import { useDateRangePickerContext } from "./date-range-picker.context";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 

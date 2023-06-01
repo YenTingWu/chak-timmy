@@ -14,7 +14,7 @@ import {
   DateRangePickerCalendarTitle,
   DateRangePickerCalendarNextButton,
   DateRangePickerCalendarPrevButton,
-} from "date-range-picker";
+} from "@chak-timmy/date-range-picker";
 import { getISODateString } from "@chak-timmy/utils";
 
 export const DateRangePickerExample = () => {

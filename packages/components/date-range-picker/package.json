@@ -1,5 +1,5 @@
 {
-  "name": "date-range-picker",
+  "name": "@chak-timmy/date-range-picker",
   "version": "0.0.0",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
@@ -34,6 +34,6 @@
     "@react-stately/calendar": "^3.2.0",
     "@react-stately/datepicker": "^3.4.0",
     "@chak-timmy/base": "workspace:*",
-    "hooks": "workspace:*"
+    "@chak-timmy/hooks": "workspace:*"
   }
 }

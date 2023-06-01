@@ -4,7 +4,7 @@ import { useDateField } from "@react-aria/datepicker";
 import { useDateFieldState } from "@react-stately/datepicker";
 import { useLocale } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
-import { useMergeRefs } from "hooks";
+import { useMergeRefs } from "@chak-timmy/hooks";
 import { DateSegment } from "./date-segment";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 import type { AriaDateFieldOptions, DateValue } from "@react-aria/datepicker";

@@ -1,7 +1,7 @@
 import React from "react";
 import { chakra, forwardRef } from "@chakra-ui/system";
 import { useDialog } from "@react-aria/dialog";
-import { useMergeRefs } from "hooks";
+import { useMergeRefs } from "@chak-timmy/hooks";
 import type { HTMLChakraProps } from "@chakra-ui/system";
 import type { AriaDialogProps } from "@react-aria/dialog";
 

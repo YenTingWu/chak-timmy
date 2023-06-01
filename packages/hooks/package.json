@@ -1,5 +1,5 @@
 {
-  "name": "hooks",
+  "name": "@chak-timmy/hooks",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
