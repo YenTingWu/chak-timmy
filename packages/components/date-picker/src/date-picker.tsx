@@ -5,18 +5,58 @@ import { DatePickerProvider } from "./date-picker.provider";
 import { CalendarDate, parseDate } from "@internationalized/date";
 
 export interface DatePickerProps {
+  /**
+   * Used to control whether popover should be open or closed
+   */
   isOpen?: boolean;
+  /**
+   * Default value to control whether popover should be open or closed
+   */
   defaultOpen?: boolean;
-  onOpenChange?: (isOpen: boolean) => void;
+
+  /**
+   * Used to check if the popover should close after completing a select action
+   */
   shouldCloseOnSelect?: boolean | (() => boolean);
+  /**
+   * Value with ISO date format
+   * XXXX-XX-XX
+   */
   value?: string;
+  /**
+   * Default value with ISO date format
+   * XXXX-XX-XX
+   */
   defaultValue?: string;
-  onChange?: (iso: string) => void;
+
+  /**
+   * React children
+   */
   children: React.ReactNode;
+  /**
+   * The label for aria-label or aria-labelledby attribute for accessibility.
+   */
+  label?: string;
+  /**
+   * ### onOpenChange
+   *
+   * Triggered when open state has been changed.
+   * Used to control external isOpen props
+   *
+   * @param isOpen boolean
+   * @returns void
+   */
+  onOpenChange?: (isOpen: boolean) => void;
+  /**
+   * ### onChange
+   * @param iso ISO Date XXXX-XX-XX
+   * @returns void
+   */
+  onChange?: (iso: string) => void;
 }
 
-export const DatePicker = ({ children, ...props }: DatePickerProps) => {
-  const newProps = useDatePickerProps(props);
+export const DatePicker = ({ children, label, ...props }: DatePickerProps) => {
+  const newProps = useDatePickerProps({ label, ...props });
 
   const state = useDatePickerState({
     ...newProps,
