@@ -407,6 +407,9 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
     devDependencies:
+      '@chak-timmy/test-utils':
+        specifier: workspace:*
+        version: link:../../../toolings/test-utils
       '@chak-timmy/types':
         specifier: workspace:*
         version: link:../../types

@@ -35,6 +35,7 @@ export const DateRangePickerStartField = forwardRef<
 
   return (
     <DateField
+      data-testid="date-range-trigger-start-field"
       fieldProps={startFieldProps}
       px={px}
       mr={mr}
