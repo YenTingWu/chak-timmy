@@ -19,6 +19,7 @@
     "tsconfig": "workspace:*",
     "@chak-timmy/types": "workspace:*",
     "@chak-timmy/utils": "workspace:*",
+    "@chak-timmy/test-utils": "workspace:*",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {

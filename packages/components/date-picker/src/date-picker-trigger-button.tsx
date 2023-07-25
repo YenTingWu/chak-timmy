@@ -12,6 +12,7 @@ export const DatePickerTriggerButton = () => {
 
   return (
     <IconButton
+      data-testid="date-picker-trigger-button"
       {...buttonProps}
       ref={ref}
       icon={
