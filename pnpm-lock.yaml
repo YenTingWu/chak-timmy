@@ -1,5 +1,8 @@
 lockfileVersion: '6.0'
 
+overrides:
+  nwsapi: 2.2.5
+
 importers:
 
   .:
@@ -334,6 +337,9 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
     devDependencies:
+      '@chak-timmy/test-utils':
+        specifier: workspace:*
+        version: link:../../../toolings/test-utils
       '@chak-timmy/types':
         specifier: workspace:*
         version: link:../../types
@@ -502,6 +508,8 @@ importers:
       typescript:
         specifier: ^4.5.2
         version: 4.9.3
+
+  toolings/test-utils: {}
 
 packages:
 
@@ -9633,7 +9641,7 @@ packages:
       http-proxy-agent: 5.0.0
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.6
+      nwsapi: 2.2.5
       parse5: 7.1.2
       saxes: 6.0.0
       symbol-tree: 3.2.4
@@ -10421,8 +10429,8 @@ packages:
       set-blocking: 2.0.0
     dev: true
 
-  /nwsapi@2.2.6:
-    resolution: {integrity: sha512-vSZ4miHQ4FojLjmz2+ux4B0/XA16jfwt/LBzIUftDpRd8tujHFkXjMyLwjS08fIZCzesj2z7gJukOKJwqebJAQ==}
+  /nwsapi@2.2.5:
+    resolution: {integrity: sha512-6xpotnECFy/og7tKSBVmUNft7J3jyXAka4XvG6AUhFWRz+Q/Ljus7znJAA3bxColfQLdS+XsjoodtJfCgeTEFQ==}
     dev: true
 
   /object-assign@4.1.1:
