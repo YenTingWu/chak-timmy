@@ -10,6 +10,10 @@
       "cache": false,
       "persistent": true
     },
+    "build-fast": {
+      "cache": false,
+      "dependsOn": ["^build-fast"]
+    },
     "typecheck": {
       "cache": false,
       "dependsOn": ["^typecheck"]
