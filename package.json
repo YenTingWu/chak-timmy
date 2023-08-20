@@ -43,6 +43,7 @@
     "prettier": "^2.8.8",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.13",
+    "tsup": "^7.1.0",
     "turbo": "^1.10.12",
     "typescript": "^5.0.4"
   },
