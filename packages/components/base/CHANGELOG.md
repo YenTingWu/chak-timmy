@@ -1,5 +1,11 @@
 # @chak-timmy/base
 
+## 1.0.0
+
+### Major Changes
+
+- setup tsup
+
 ## 0.2.0
 
 ### Minor Changes

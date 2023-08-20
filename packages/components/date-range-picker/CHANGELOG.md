@@ -1,5 +1,16 @@
 # @chak-timmy/date-range-picker
 
+## 2.0.0
+
+### Major Changes
+
+- setup tsup
+
+### Patch Changes
+
+- Updated dependencies
+  - @chak-timmy/base@1.0.0
+
 ## 1.2.0
 
 ### Minor Changes
