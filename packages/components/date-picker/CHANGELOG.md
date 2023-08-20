@@ -1,5 +1,11 @@
 # @chak-timmy/date-picker
 
+## 2.1.0
+
+### Minor Changes
+
+- update styles
+
 ## 2.0.0
 
 ### Major Changes

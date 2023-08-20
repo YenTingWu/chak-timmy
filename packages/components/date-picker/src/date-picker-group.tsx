@@ -21,7 +21,7 @@ export const DatePickerGroup = forwardRef<DatePickerGroupProps, "div">(
       maxW = "240px",
       display = "flex",
       _hover = {
-        outline: "2px solid #828282",
+        outline: "1px solid #2869CA",
       },
       _invalid = {
         outline: "2px solid #B3261E",

@@ -7,17 +7,19 @@ interface DatePickerFieldProps extends HTMLChakraProps<"div"> {}
 
 export const DatePickerField = forwardRef<DatePickerFieldProps, "div">(
   (props, remoteRef) => {
+    const { fieldProps: fieldPropsFromDatePickerContext } =
+      useDatePickerContext();
+
+    const { value, defaultValue } = fieldPropsFromDatePickerContext;
+
     const {
       px = "12px",
       mr = "auto",
       display = "flex",
       alignItems = "center",
-      color = "#d9d9d9",
+      color = value == null && defaultValue == null ? "#d9d9d9" : "#1d1d1d",
       ...rest
     } = props;
-
-    const { fieldProps: fieldPropsFromDatePickerContext } =
-      useDatePickerContext();
 
     return (
       <DateField

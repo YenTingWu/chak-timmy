@@ -10,13 +10,14 @@ export const DateRangePickerStartField = forwardRef<
   "div"
 >((props, remoteRef) => {
   const { startFieldProps, state } = useDateRangePickerContext();
+  const { value, defaultValue } = startFieldProps;
 
   const {
     px = "12px",
     mr = "auto",
     display = "flex",
     alignItems = "center",
-    color = "#d9d9d9",
+    color = value == null && defaultValue == null ? "#d9d9d9" : "#1d1d1d",
     borderRadius = "6px",
     outline = state.isOpen ? "2px solid #2869CA" : "1px solid #d9d9d9",
     py = "16px",
@@ -27,7 +28,7 @@ export const DateRangePickerStartField = forwardRef<
       outline: "2px solid #B3261E",
     },
     _hover = {
-      outline: "2px solid #828282",
+      outline: "1px solid #2869CA",
     },
     _focusWithin = { outline: "2px solid #2869CA" },
     ...rest
