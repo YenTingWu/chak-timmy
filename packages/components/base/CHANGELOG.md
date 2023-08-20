@@ -1,5 +1,11 @@
 # @chak-timmy/base
 
+## 0.2.0
+
+### Minor Changes
+
+- clean-package setup
+
 ## 0.1.0
 
 ### Minor Changes

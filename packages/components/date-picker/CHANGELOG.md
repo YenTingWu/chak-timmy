@@ -1,5 +1,16 @@
 # @chak-timmy/date-picker
 
+## 1.2.0
+
+### Minor Changes
+
+- clean-package setup
+
+### Patch Changes
+
+- Updated dependencies
+  - @chak-timmy/base@0.2.0
+
 ## 1.1.0
 
 ### Minor Changes

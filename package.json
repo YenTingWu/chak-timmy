@@ -10,7 +10,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "changeset version",
+    "release": "turbo run prepack && changeset publish && turbo run postpack"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

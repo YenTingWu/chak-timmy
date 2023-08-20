@@ -1,6 +1,6 @@
 {
   "name": "@chak-timmy/base",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "license": "MIT",
@@ -8,7 +8,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "build-fast": "tsup ./src",
-    "build": "tsup ./src --dts"
+    "build": "tsup ./src --dts",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "files": [
     "dist"
@@ -18,6 +20,7 @@
     "@types/node": "^17.0.12",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "clean-package": "^2.2.0",
     "eslint": "^8.38.0",
     "eslint-config-custom": "workspace:*",
     "react": ">=18",
@@ -29,6 +32,7 @@
     "react": ">=18"
   },
   "dependencies": {
+    "@chak-timmy/hooks": "workspace:*",
     "@internationalized/date": "^3.2.0",
     "@react-aria/calendar": "^3.2.0",
     "@react-aria/datepicker": "^3.4.0",
@@ -36,7 +40,7 @@
     "@react-aria/i18n": "^3.7.1",
     "@react-aria/overlays": "^3.14.0",
     "@react-stately/calendar": "^3.2.0",
-    "@react-stately/datepicker": "^3.4.0",
-    "@chak-timmy/hooks": "workspace:*"
-  }
+    "@react-stately/datepicker": "^3.4.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
 }
