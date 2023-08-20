@@ -1,12 +1,14 @@
 {
   "name": "@chak-timmy/base",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
+    "build-fast": "tsup ./src",
+    "build": "tsup ./src --dts"
   },
   "devDependencies": {
     "@chakra-ui/system": ">=2",
