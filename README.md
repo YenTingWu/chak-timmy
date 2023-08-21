@@ -1,81 +1,256 @@
-# Turborepo starter
+<h1 align='center'>Chak-Timmy</h1>
 
-This is an official starter Turborepo.
+Chak-Timmy is a react component library that built on top of <a href='https://chakra-ui.com/'>chakra-ui</a>, which mainly serves as date picker and calendar components.
 
-## Using this example
+<div align="center">
+    
+[![npm](https://img.shields.io/npm/v/@chak-timmy/react?color=blue&logo=npm&style=flat-square)](https://www.npmjs.com/package/@chak-timmy/react)
 
-Run the following command:
+[![GitHub](https://img.shields.io/github/license/YenTingWu/chak-timmy)](https://github.com/YenTingWu/chak-timmy/blob/main/LICENSE)
 
-```sh
-npx create-turbo@latest
+</div>
+
+Check out [storybook](https://646b21717bd2cb2ea0e03367-mxyxrkpztg.chromatic.com/?path=/docs/components-single-date-picker--docs) to play with components.
+
+## Setup
+
+### Install Chakra UI
+
+Follow the instructions from [Chakra-UI installation](https://chakra-ui.com/getting-started)
+
+### Install Chak-Timmy
+
+```bash
+npm install --save @chak-timmy/react
 ```
 
-## What's inside?
+## API
 
-This Turborepo includes the following packages/apps:
+- (?) = optional props
 
-### Apps and Packages
+### DatePicker
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+| props                   | type                      | description                                                                      |
+| :---------------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| isOpen (?)              | boolean                   | a boolean value to control if the popover is open                                |
+| defaultOpen (?)         | boolean                   | if `true`, popover will be initially open                                        |
+| shouldCloseOnSelect (?) | boolean \| () => boolean  | if `true` or the return `true`, popover closes after completing a date selection |
+| label (?)               | string                    | The label for aria-label or aria-labelledby attribute for accessibility.         |
+| value (?)               | string                    | a value with iso date format to control the picked date                          |
+| children                | React.ReactNode           | React children                                                                   |
+| defaultValue (?)        | string                    | a default value with iso date format                                             |
+| onOpenChange (?)        | (isOpen: boolean) => void | a function triggered while isOpen is being changed                               |
+| onChange (?)            | (iso: string) => void     | a function triggered while the date is selected                                  |
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### DateRangePicker
 
-### Utilities
+| props                   | type                                            | description                                                                      |
+| :---------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------- |
+| isOpen (?)              | boolean                                         | a boolean value to control if the popover is open                                |
+| defaultOpen (?)         | boolean                                         | if `true`, popover will be initially open                                        |
+| label (?)               | string                                          | The label for aria-label or aria-labelledby attribute for accessibility.         |
+| children                | React.ReactNode                                 | React children                                                                   |
+| shouldCloseOnSelect (?) | boolean \| () => boolean                        | if `true` or the return `true`, popover closes after completing a date selection |
+| value (?)               | { start: string; end: string }                  | a value with iso date format to control the picked date                          |
+| defaultValue (?)        | { start: string; end: string }                  | a default value with iso date format                                             |
+| onOpenChange (?)        | (isOpen: boolean) => void                       | a function triggered while isOpen is being changed                               |
+| onChange (?)            | (value: { start: string; end: string }) => void | a function triggered while the date is selected                                  |
 
-This Turborepo has some additional tools already setup for you:
+## Usage
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### DatePicker
 
-### Build
+#### import
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+```tsx
+import {
+  DatePicker,
+  DatePickerGroup,
+  DatePickerField,
+  DatePickerPopover,
+  DatePickerDialog,
+  DatePickerTriggerButton,
+  DatePickerCalendar,
+  DatePickerCalendarContent,
+  DatePickerCalendarGrid,
+  DatePickerCalendarNextButton,
+  DatePickerCalendarHeader,
+  DatePickerCalendarTitle,
+  DatePickerCalendarPrevButton,
+} from "@chak-timmy/react";
 ```
 
-## Useful Links
+#### Uncontrolled
 
-Learn more about the power of Turborepo:
+```tsx
+function UncontrolledDatePickerExample() {
+  return (
+    <DatePicker>
+      <DatePickerGroup>
+        <DatePickerField />
+        <DatePickerTriggerButton />
+      </DatePickerGroup>
+      <DatePickerPopover>
+        <DatePickerDialog>
+          <DatePickerCalendar>
+            <DatePickerCalendarContent>
+              <DatePickerCalendarHeader>
+                <DatePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DatePickerCalendarPrevButton />
+                  <DatePickerCalendarNextButton />
+                </chakra.div>
+              </DatePickerCalendarHeader>
+              <DatePickerCalendarGrid />
+            </DatePickerCalendarContent>
+          </DatePickerCalendar>
+        </DatePickerDialog>
+      </DatePickerPopover>
+    </DatePicker>
+  );
+}
+```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+#### Controlled
+
+```tsx
+function ControlledDatePickerExample() {
+  const [iSOString, setISOString] = React.useState(
+    /** import { getISODateString } from '@chak-timmy/utils' */
+    `${getISODateString(new Date())}`,
+  );
+  const [isOpen, setIsOpen] = React.useState < boolean > false;
+
+  return (
+    <DatePicker
+      value={iSOString}
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      label="date picker"
+      onChange={(iso: string) => setISOString(iso)}
+    >
+      <DatePickerGroup>
+        <DatePickerField />
+        <DatePickerTriggerButton />
+      </DatePickerGroup>
+      <DatePickerPopover>
+        <DatePickerDialog>
+          <DatePickerCalendar>
+            <DatePickerCalendarContent>
+              <DatePickerCalendarHeader>
+                <DatePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DatePickerCalendarPrevButton />
+                  <DatePickerCalendarNextButton />
+                </chakra.div>
+              </DatePickerCalendarHeader>
+              <DatePickerCalendarGrid />
+            </DatePickerCalendarContent>
+          </DatePickerCalendar>
+        </DatePickerDialog>
+      </DatePickerPopover>
+    </DatePicker>
+  );
+}
+```
+
+### DateRangePicker
+
+#### import
+
+```tsx
+import {
+  DateRangePicker,
+  DateRangePickerGroup,
+  DateRangePickerStartField,
+  DateRangePickerEndField,
+  DateRangePickerPopover,
+  DateRangePickerDialog,
+  DateRangePickerCalendar,
+  DateRangePickerCalendarContent,
+  DateRangePickerCalendarGrid,
+  DateRangePickerCalendarHeader,
+  DateRangePickerCalendarTitle,
+  DateRangePickerCalendarNextButton,
+  DateRangePickerCalendarPrevButton,
+} from "@chak-timmy/date-range-picker";
+```
+
+#### Uncontrolled
+
+```tsx
+function UncontrolledDateRangePickerExample() {
+  return (
+    <DateRangePicker>
+      <DateRangePickerGroup mt="36px">
+        <DateRangePickerStartField />
+        <chakra.div mx="16px">-</chakra.div>
+        <DateRangePickerEndField />
+      </DateRangePickerGroup>
+      <DateRangePickerPopover>
+        <DateRangePickerDialog>
+          <DateRangePickerCalendar>
+            <DateRangePickerCalendarContent>
+              <DateRangePickerCalendarHeader>
+                <DateRangePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DateRangePickerCalendarPrevButton />
+                  <DateRangePickerCalendarNextButton />
+                </chakra.div>
+               </DateRangePickerCalendarHeader>
+              <DateRangePickerCalendarGrid />
+            </DateRangePickerCalendarContent>
+          </DateRangePickerCalendar>
+         </DateRangePickerDialog>
+        </DateRangePickerPopover>
+      </DateRangePicker>>
+  )
+}
+```
+
+#### Controlled
+
+```tsx
+function ControlledDateRangePickerExample() {
+  const [value, setValue] = React.useState({
+    start: getISODateString(new Date()),
+    end: getISODateString(new Date()),
+  });
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  return (
+    <DateRangePicker
+        value={value}
+        isOpen={isOpen}
+        label="date range picker"
+        onOpenChange={setIsOpen}
+        onChange={(newValue:{ start: string; end: string }) =>
+          setValue(newValue)
+        }
+      >
+      <DateRangePickerGroup mt="36px">
+        <DateRangePickerStartField />
+        <chakra.div mx="16px">-</chakra.div>
+        <DateRangePickerEndField />
+      </DateRangePickerGroup>
+      <DateRangePickerPopover>
+        <DateRangePickerDialog>
+          <DateRangePickerCalendar>
+            <DateRangePickerCalendarContent>
+              <DateRangePickerCalendarHeader>
+                <DateRangePickerCalendarTitle />
+                <chakra.div display="flex" alignItems="center">
+                  <DateRangePickerCalendarPrevButton />
+                  <DateRangePickerCalendarNextButton />
+                </chakra.div>
+               </DateRangePickerCalendarHeader>
+              <DateRangePickerCalendarGrid />
+            </DateRangePickerCalendarContent>
+          </DateRangePickerCalendar>
+         </DateRangePickerDialog>
+        </DateRangePickerPopover>
+      </DateRangePicker>>
+  )
+}
+```
