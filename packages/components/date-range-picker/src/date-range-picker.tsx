@@ -13,10 +13,6 @@ export interface DateRangePickerProps {
    * Default value to control whether popover should be open or closed
    */
   defaultOpen?: boolean;
-
-  /**
-   * Used to check if the popover should close after completing a select action
-   */
   /**
    * The label for aria-label or aria-labelledby attribute for accessibility.
    */
