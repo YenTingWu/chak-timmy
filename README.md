@@ -1,14 +1,14 @@
-<h1 align='center'>Chak-Timmy</h1>
+<h1>Chak-Timmy</h1>
 
 Chak-Timmy is a react component library that built on top of <a href='https://chakra-ui.com/'>chakra-ui</a>, which mainly serves as date picker and calendar components.
 
-<div align="center">
+
+<p>
     
 [![npm](https://img.shields.io/npm/v/@chak-timmy/react?color=blue&logo=npm&style=flat-square)](https://www.npmjs.com/package/@chak-timmy/react)
-
 [![GitHub](https://img.shields.io/github/license/YenTingWu/chak-timmy)](https://github.com/YenTingWu/chak-timmy/blob/main/LICENSE)
 
-</div>
+</p>
 
 Check out [storybook](https://646b21717bd2cb2ea0e03367-mxyxrkpztg.chromatic.com/?path=/docs/components-single-date-picker--docs) to play with components.
 
