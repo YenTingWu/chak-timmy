@@ -134,7 +134,7 @@ export function WithPlacementChanged() {
   );
 }
 
-export function WithFlippingAllow() {
+export function WithFlippingAllowed() {
   return (
     <>
       <chakra.div mb="16px" sx={{ p: { m: 0 } }}>
