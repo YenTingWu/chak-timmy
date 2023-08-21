@@ -1,0 +1,37 @@
+{
+  "name": "@chak-timmy/react",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
+    "build-fast": "tsup ./src",
+    "build": "tsup ./src --dts",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "@chakra-ui/system": ">=2",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2",
+    "eslint": "^8.38.0",
+    "eslint-config-custom": "workspace:*",
+    "clean-package": "^2.2.0"
+  },
+  "dependencies": {
+    "@chak-timmy/hooks": "workspace:*",
+    "@chak-timmy/date-picker": "workspace:*",
+    "@chak-timmy/date-range-picker": "workspace:*",
+    "@chak-timmy/utils": "workspace:*",
+    "@chak-timmy/types": "workspace:*"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
